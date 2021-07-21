@@ -1,0 +1,1 @@
+{"version":3,"sources":["compoenian/db.cljs"],"mappings":";AAEA,2BAAA,2CAAA,qDAAA,3HAAKA","names":["compoenian.db/default-db"],"sourcesContent":["(ns compoenian.db)\n\n(def default-db\n  {:name \"re-frame\"})\n"]}

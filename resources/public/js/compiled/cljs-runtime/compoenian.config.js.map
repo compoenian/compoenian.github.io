@@ -1,0 +1,1 @@
+{"version":3,"sources":["compoenian/config.cljs"],"mappings":";AAEA,AAAKA,iCACMC","names":["compoenian.config/debug?","js/goog.DEBUG"],"sourcesContent":["(ns compoenian.config)\n\n(def debug?\n  ^boolean goog.DEBUG)\n"]}
