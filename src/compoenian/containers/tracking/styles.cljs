@@ -5,15 +5,15 @@
 
 (css/defstyles container-main []
   {:height "100%"
-   :padding "40px"
-   :box-sizing "border-box"})
+   :padding "40px"})
 
 (css/defstyles grid-container-main []
   {:height "100%"})
 
 (css/defstyles timer-content-container []
   {:width "240px"
-   :margin-right "32px"})
+   :margin-right "40px"
+   :height "100%"})
 
 (css/defstyles track-icon-container []
   {:margin "16px"
@@ -46,7 +46,6 @@
 
 (css/defstyles timer-card-container []
   {:height "100%"
-   :box-sizing "border-box"
    :background-color (:raisin-black palette)
    :background-image "linear-gradient(150deg, rgba(35, 144, 178, 0), rgba(35, 144, 178, 0.2))"
    :border "1px solid #3D3D3D"
@@ -134,3 +133,28 @@
   {:font-size "12px"
    :color (get {:inactive "rgba(255, 255, 255, 0.8)"
                 :pending "rgba(255, 255, 255, 0.8)"} status)})
+
+(css/defstyles progress-card-container []
+  {:margin-top "40px"
+   :height "240px"
+   :background-color (:raisin-black palette)
+   :background-image "linear-gradient(150deg, rgba(35, 178, 153, 0.0), rgba(35, 178, 153, 0.2))"
+   :border "1px solid #3D3D3D"
+   :border-radius "32px"
+   :padding "32px"})
+
+(css/defstyles progress-bar []
+  {:filter "drop-shadow(0px 0px 8px rgba(35, 178, 153, 0.4))"})
+
+(css/defstyles progress-bar-text []
+  {:font-size "32px"
+   :font-weight "bold"})
+
+(css/defstyles content-panel []
+  {:height "100%"
+   :width "100%"
+   :background-color (:raisin-black palette)
+   :background-image "linear-gradient(150deg, rgba(35, 178, 153, 0.0), rgba(35, 178, 153, 0.2))"
+   :border "1px solid #3D3D3D"
+   :border-radius "32px"
+   :padding "32px"})

@@ -21,7 +21,7 @@
       [:> mui/Grid {:item true}
        [:> mui/Box {:class (styles/navigation-option-container true)}
         [:> Timer {:class (styles/navigation-icon)}]]]]]
-
     [:> mui/Grid {:class (styles/content-container)
-                  :item true}
+                  :item true
+                  :xs true}
      (tracking/container)]]])
