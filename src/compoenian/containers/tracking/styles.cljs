@@ -150,7 +150,25 @@
   {:font-size "32px"
    :font-weight "bold"})
 
-(css/defstyles content-panel []
+(css/defstyles zone-panel []
+  {:height "100%"
+   :width "100%"
+   :background-color (:raisin-black palette)
+   :background-image "linear-gradient(150deg, rgba(233, 86, 52, 0.0), rgba(233, 86, 52, 0.2))"
+   :border "1px solid #3D3D3D"
+   :border-radius "32px"
+   :padding "32px"})
+
+(css/defstyles gear-panel []
+  {:height "320px"
+   :width "100%"
+   :background-color (:raisin-black palette)
+   :background-image "linear-gradient(150deg, rgba(35, 144, 178, 0), rgba(35, 144, 178, 0.2))"
+   :border "1px solid #3D3D3D"
+   :border-radius "32px"
+   :padding "32px"})
+
+(css/defstyles skillpoint-panel []
   {:height "100%"
    :width "100%"
    :background-color (:raisin-black palette)
@@ -158,3 +176,57 @@
    :border "1px solid #3D3D3D"
    :border-radius "32px"
    :padding "32px"})
+
+(css/defstyles passive-image []
+  {:width "400px"})
+
+(css/defstyles stats-panel []
+  {:height "100%"
+   :width "100%"
+   :background-color (:raisin-black palette)
+   :background-image "linear-gradient(150deg, rgba(231, 201, 80, 0.0), rgba(231, 201, 80, 0.2))"
+   :border "1px solid #3D3D3D"
+   :border-radius "32px"
+   :padding "32px"})
+
+(css/defstyles target-level-container []
+  {:margin-bottom "16px"})
+
+(css/defstyles stat-label []
+  {:font-size "12px"
+   :white-space "nowrap"
+   :overflow "hidden"
+   :text-overflow "ellipsis"
+   :text-transform "uppercase"
+   :color "rgba(255, 255, 255, 0.6)"})
+
+(css/defstyles stat-value []
+  {:font-size "32px"
+   :font-weight "bold"})
+
+(css/defstyles inactive-text []
+  {:font-size "12px"
+   :color "rgba(255, 255, 255, 0.6)"})
+
+(css/defstyles card-title []
+  {:font-size "24px"
+   :font-weight "bold"
+   :text-transform "uppercase"
+   :margin-bottom "16px"})
+
+(css/defstyles card-spacer []
+  {:padding "32px 0px"
+   :margin "0 24px"
+   :width "2px"
+   :height "100%"
+   :background-color "rgba(61, 61, 61, 0.6)"})
+
+(css/defstyles zone-reference-container []
+  {:width "200px"
+   :height "100%"})
+
+(css/defstyles zone-layouts-container []
+  {:min-height "80px"})
+
+(css/defstyles zone-notes-container []
+  {})

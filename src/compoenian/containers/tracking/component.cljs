@@ -117,6 +117,46 @@
                                                              "strokeLinecap" "round"}}}
     [:> mui/Box {:class (styles/progress-bar-text)} "82%"]]])
 
+(defn stats-card []
+  [:> mui/Box {:class (styles/stats-panel)}
+   [:> mui/Grid {:container true
+                 :direction "column"
+                 :style {:height "100%"}}
+    [:> mui/Grid {:item true}
+     [:> mui/Box {:class (styles/card-title)} "STATS"]]
+    [:> mui/Grid {:item true}
+     [:> mui/Box {:class (styles/target-level-container)}
+      [:> mui/Box {:class (styles/stat-label)} "Target Level"]
+      [:> mui/Box {:class (styles/stat-value)} "32"]]]
+    [:> mui/Grid {:item true}
+     [:> mui/Box {:class (styles/inactive-text)} "-"]]]])
+
+(defn zone-card []
+  [:> mui/Box {:class (styles/zone-panel)}
+   [:> mui/Grid {:container true
+                 :direction "row"
+                 :style {:width "100%"
+                         :height "100%"}}
+    [:> mui/Grid {:item true
+                  :xs true}
+     [:> mui/Box {:class (styles/card-title)} "ZONE - LEGEND"]]
+    [:> mui/Grid {:item true
+                  :style {:height "100%"}}
+     [:> mui/Box {:class (styles/card-spacer)} ""]]
+    [:> mui/Grid {:item true}
+     [:> mui/Box {:class (styles/zone-reference-container)}
+      [:> mui/Grid {:container true
+                    :direction "column"
+                    :style {:height "100%"}}
+       [:> mui/Grid {:item true}
+        [:> mui/Box {:class (styles/zone-layouts-container)}
+         [:> mui/Box {:class (styles/stat-label)} "LAYOUTS"]
+         [:> mui/Box {:class (styles/inactive-text)} "-"]]]
+       [:> mui/Grid {:item true}
+        [:> mui/Box {:class (styles/zone-notes-container)}
+         [:> mui/Box {:class (styles/stat-label)} "NOTES"]
+         [:> mui/Box {:class (styles/inactive-text)} "-"]]]]]]]])
+
 (defn container []
   [:> mui/Box {:class (styles/container-main)}
    [:> mui/Grid {:class (styles/grid-container-main)
@@ -128,12 +168,34 @@
                     :direction "column"
                     :style {:height "100%"}}
        [:> mui/Grid {:item true}
-        (track-details-container)]
+        [track-details-container]]
        [:> mui/Grid {:item true
                      :style {:height "calc(100% - 366px)"}}
-        (timer-card)]
+        [timer-card]]
        [:> mui/Grid {:item true}
-        (progress-card)]]]]
+        [progress-card]]]]]
     [:> mui/Grid {:item true
-                  :xs true}
-     [:> mui/Box {:class (styles/content-panel)} "content panel"]]]])
+                  :xs true
+                  :style {:margin-right "40px"}}
+     [:> mui/Grid {:container true
+                   :direction "column"
+                   :style {:height "100%"}}
+      [:> mui/Grid {:item true
+                    :style {:height "calc(100% - 360px)"
+                            :margin-bottom "40px"}}
+       [zone-card]]
+      [:> mui/Grid {:item true}
+       [:> mui/Box {:class (styles/gear-panel)}
+        [:> mui/Box {:class (styles/card-title)} "GEAR"]]]]]
+    [:> mui/Grid {:item true}
+     [:> mui/Grid {:container true
+                   :direction "column"
+                   :style {:height "100%"}}
+      [:> mui/Grid {:item true
+                    :style {:margin-bottom "40px"}}
+       [:> mui/Box {:class (styles/skillpoint-panel)}
+        [:img {:class (styles/passive-image)
+               :src "img/lightning-trap.PNG"}]]]
+      [:> mui/Grid {:item true
+                    :style {:height "calc(100% - 552px)"}}
+       [stats-card]]]]]])
