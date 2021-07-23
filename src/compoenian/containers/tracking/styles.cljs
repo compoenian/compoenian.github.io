@@ -12,17 +12,16 @@
 
 (css/defstyles timer-content-container []
   {:width "240px"
-   :margin-right "40px"
    :height "100%"})
 
 (css/defstyles track-icon-container []
   {:margin "16px"
    :margin-bottom "32px"
-   :color (:flame palette)})
+   :color (get-in palette [:flame :flat])})
 
 (css/defstyles track-icon []
   {:font-size "32px !important"
-   :filter "drop-shadow(0px 0px 8px rgb(223, 86, 52))"})
+   :filter ((get-in palette [:flame :ds]) "8px" "0.8")})
 
 (css/defstyles track-information-container []
   {:margin-top "16px"
@@ -39,16 +38,16 @@
 
 (css/defstyles track-details-container []
   {:font-size "12px"
-   :color "rgba(255, 255, 255, 0.4)"
+   :color ((get-in palette [:white :alpha]) "0.4")
    :white-space "nowrap"
    :overflow "hidden"
    :text-overflow "ellipsis"})
 
 (css/defstyles timer-card-container []
   {:height "100%"
-   :background-color (:raisin-black palette)
-   :background-image "linear-gradient(150deg, rgba(35, 144, 178, 0), rgba(35, 144, 178, 0.2))"
-   :border "1px solid #3D3D3D"
+   :background-color (get-in palette [:raisin-black :flat])
+   :background-image ((get-in palette [:blue-green :lg]) "150deg" "0.0" "0.2")
+   :border (str "1px solid " (get-in palette [:onyx :flat]))
    :border-radius "32px"})
 
 (css/defstyles timer-display-container []
@@ -58,33 +57,34 @@
   {:font-size "8px"
    :text-align "right"
    :text-transform "uppercase"
-   :color "rgba(255, 255, 255, 0.4)"})
+   :color ((get-in palette [:white :alpha]) "0.4")})
 
 (css/defstyles timer-actions-container []
   {:padding "0px 32px"})
 
 (css/defstyles timer-display-value []
-  {:font-size "40px"
-   :text-align "right"})
+  {:font-size "36px"
+   :text-align "right"
+   :font-family "Roboto Mono, monospace"})
 
 (css/defstyles timer-action-container [content-icon]
   {:text-align "center"
    :cursor "pointer"
-   :color (get {:start (:keppel palette)
-                :pause (:maize-crayola palette)
-                :reset (:flame palette)} content-icon)})
+   :color (get {:start (get-in palette [:keppel :flat])
+                :pause (get-in palette [:maize-crayola :flat])
+                :reset (get-in palette [:flame :flat])} content-icon)})
 
 (css/defstyles timer-action-icon [content-icon]
   {:margin "0 auto"
    :font-size "32px !important"
-   :filter (get {:start "drop-shadow(0px 0px 8px rgba(35, 178, 153, 0.4))"
-                 :pause "drop-shadow(0px 0px 8px rgba(231, 201, 80, 0.4))"
-                 :reset "drop-shadow(0px 0px 8px rgba(223, 86, 52, 0.4))"} content-icon)})
+   :filter (get {:start ((get-in palette [:keppel :ds]) "8px" "0.4")
+                 :pause ((get-in palette [:maize-crayola :ds]) "8px" "0.4")
+                 :reset ((get-in palette [:flame :ds]) "8px" "0.4")} content-icon)})
 
 (css/defstyles timer-action-label []
   {:font-size "10px"
    :text-transform "uppercase"
-   :color "rgba(255, 255, 255, 0.4)"})
+   :color ((get-in palette [:white :alpha]) "0.4")})
 
 (css/defstyles timer-grid-container []
   {:padding "32px 0px"})
@@ -100,51 +100,40 @@
   {:margin "4px 0px"
    :height "60px"})
 
-(css/defstyles active-panel-content []
-  {:height "100%"
-   :background-image "linear-gradient(90deg, rgba(35, 144, 178, 0.0), rgba(35, 144, 178, 0.2))"
-   :padding-top "8px"
-   :padding-left "16px"})
-
-(css/defstyles active-panel-bar []
-  {:width "4px"
-   :height "100%"
-   :background-color (:blue-green palette)})
-
 (css/defstyles panel-title [status]
   {:font-size "12px"
    :white-space "nowrap"
    :overflow "hidden"
    :text-overflow "ellipsis"
    :text-transform "uppercase"
-   :color (get {:inactive "rgba(255, 255, 255, 0.6)"
-                :pending "rgba(255, 255, 255, 0.6)"} status)})
+   :color (get {:inactive ((get-in palette [:white :alpha]) "0.6")
+                :pending ((get-in palette [:white :alpha]) "0.6")} status)})
 
 (css/defstyles panel-description [status]
   {:font-size "10px"
    :white-space "nowrap"
    :overflow "hidden"
    :text-overflow "ellipsis"
-   :color (get {:inactive "rgba(255, 255, 255, 0.4)"
-                :active "rgba(255, 255, 255, 0.6)"
-                :pending "rgba(255, 255, 255, 0.4)"} status)})
+   :color (get {:inactive ((get-in palette [:white :alpha]) "0.6")
+                :active ((get-in palette [:white :alpha]) "0.6")
+                :pending ((get-in palette [:white :alpha]) "0.4")} status)})
 
 (css/defstyles panel-timestamp [status]
   {:font-size "12px"
-   :color (get {:inactive "rgba(255, 255, 255, 0.8)"
-                :pending "rgba(255, 255, 255, 0.8)"} status)})
+   :color (get {:inactive ((get-in palette [:white :alpha]) "0.8")
+                :pending ((get-in palette [:white :alpha]) "0.8")} status)})
 
 (css/defstyles progress-card-container []
   {:margin-top "40px"
    :height "240px"
-   :background-color (:raisin-black palette)
-   :background-image "linear-gradient(150deg, rgba(35, 178, 153, 0.0), rgba(35, 178, 153, 0.2))"
-   :border "1px solid #3D3D3D"
+   :background-color (get-in palette [:raisin-black :flat])
+   :background-image ((get-in palette [:keppel :lg]) "150deg" "0.0" "0.2")
+   :border (str "1px solid " (get-in palette [:onyx :flat]))
    :border-radius "32px"
    :padding "32px"})
 
 (css/defstyles progress-bar []
-  {:filter "drop-shadow(0px 0px 8px rgba(35, 178, 153, 0.4))"})
+  {:filter ((get-in palette [:keppel :ds]) "8px" "0.4")})
 
 (css/defstyles progress-bar-text []
   {:font-size "32px"
@@ -153,39 +142,41 @@
 (css/defstyles zone-panel []
   {:height "100%"
    :width "100%"
-   :background-color (:raisin-black palette)
-   :background-image "linear-gradient(150deg, rgba(233, 86, 52, 0.0), rgba(233, 86, 52, 0.2))"
-   :border "1px solid #3D3D3D"
+   :background-color (get-in palette [:raisin-black :flat])
+   :background-image ((get-in palette [:flame :lg]) "150deg" "0.0" "0.2")
+   :border (str "1px solid " (get-in palette [:onyx :flat]))
    :border-radius "32px"
    :padding "32px"})
 
 (css/defstyles gear-panel []
   {:height "320px"
    :width "100%"
-   :background-color (:raisin-black palette)
-   :background-image "linear-gradient(150deg, rgba(35, 144, 178, 0), rgba(35, 144, 178, 0.2))"
-   :border "1px solid #3D3D3D"
+   :background-color (get-in palette [:raisin-black :flat])
+   :background-image ((get-in palette [:blue-green :lg]) "150deg" "0.0" "0.2")
+   :border (str "1px solid " (get-in palette [:onyx :flat]))
    :border-radius "32px"
    :padding "32px"})
 
 (css/defstyles skillpoint-panel []
   {:height "100%"
    :width "100%"
-   :background-color (:raisin-black palette)
-   :background-image "linear-gradient(150deg, rgba(35, 178, 153, 0.0), rgba(35, 178, 153, 0.2))"
-   :border "1px solid #3D3D3D"
+   :background-color (get-in palette [:raisin-black :flat])
+   :background-image ((get-in palette [:keppel :lg]) "150deg" "0.0" "0.2")
+   :border (str "1px solid " (get-in palette [:onyx :flat]))
    :border-radius "32px"
    :padding "32px"})
 
 (css/defstyles passive-image []
-  {:width "400px"})
+  {:width "400px"
+   :border-radius "32px"
+   :border (str "1px solid " (get-in palette [:onyx :flat]))})
 
 (css/defstyles stats-panel []
   {:height "100%"
    :width "100%"
-   :background-color (:raisin-black palette)
-   :background-image "linear-gradient(150deg, rgba(231, 201, 80, 0.0), rgba(231, 201, 80, 0.2))"
-   :border "1px solid #3D3D3D"
+   :background-color (get-in palette [:raisin-black :flat])
+   :background-image ((get-in palette [:maize-crayola :lg]) "150deg" "0.0" "0.2")
+   :border (str "1px solid " (get-in palette [:onyx :flat]))
    :border-radius "32px"
    :padding "32px"})
 
@@ -198,7 +189,7 @@
    :overflow "hidden"
    :text-overflow "ellipsis"
    :text-transform "uppercase"
-   :color "rgba(255, 255, 255, 0.6)"})
+   :color ((get-in palette [:white :alpha]) "0.6")})
 
 (css/defstyles stat-value []
   {:font-size "32px"
@@ -206,7 +197,7 @@
 
 (css/defstyles inactive-text []
   {:font-size "12px"
-   :color "rgba(255, 255, 255, 0.6)"})
+   :color ((get-in palette [:white :alpha]) "0.6")})
 
 (css/defstyles card-title []
   {:font-size "24px"
@@ -216,10 +207,10 @@
 
 (css/defstyles card-spacer []
   {:padding "32px 0px"
-   :margin "0 24px"
+   :margin "0 32px"
    :width "2px"
    :height "100%"
-   :background-color "rgba(61, 61, 61, 0.6)"})
+   :background-color ((get-in palette [:white :alpha]) "0.2")})
 
 (css/defstyles zone-reference-container []
   {:width "200px"
@@ -230,3 +221,31 @@
 
 (css/defstyles zone-notes-container []
   {})
+
+(css/defstyles current-zone-container []
+  {})
+
+(css/defstyles legend-icon [entry]
+  {:font-size "24px !important"
+   :color (get {:action (get-in palette [:flame :flat])
+                :inventory (get-in palette [:onyx :flat])
+                :vendor (get-in palette [:keppel :flat])
+                :travel (get-in palette [:blue-green :flat])
+                :reward (get-in palette [:maize-crayola :flat])
+                :quest (get-in palette [:purpureus :flat])} entry)
+   :filter (get {:action ((get-in palette [:flame :ds]) "8px" "0.4")
+                 :inventory ((get-in palette [:onyx :ds]) "8px" "0.4")
+                 :vendor ((get-in palette [:keppel :ds]) "8px" "0.4")
+                 :travel ((get-in palette [:blue-green :ds]) "8px" "0.4")
+                 :reward ((get-in palette [:maize-crayola :ds]) "8px" "0.4")
+                 :quest ((get-in palette [:purpureus :ds]) "8px" "0.4")} entry)})
+
+(css/defstyles legend-label []
+  {:margin-left "8px"
+   :font-size "12px"
+   :line-height "24px"})
+
+(css/defstyles zone-progress-icon []
+  {:margin-top "16px"
+   :font-size "40px !important"
+   :color ((get-in palette [:white :alpha]) "0.2")})

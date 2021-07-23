@@ -11,29 +11,29 @@
 (css/defstyles container-main []
   {:min-width "100vw"
    :min-height "100vh"
-   :background-color (:rich-black palette)})
+   :background-color (get-in palette [:rich-black :flat])})
 
 (css/defstyles navigation-container []
   {:width "160px"
    :min-height "100vh"
-   :background-color (:xiketic palette)})
+   :background-color (get-in palette [:xiketic :flat])})
 (css/defstyles content-container []
   {})
 (css/defstyles app-icon-container []
   {:margin "40px 16px"
    :display "flex"
    :justify-content "center"
-   :color (:flame palette)})
+   :color (get-in palette [:flame :flat])})
 (css/defstyles app-icon []
   {:font-size "80px !important"
-   :filter "drop-shadow(0px 0px 16px rgb(223, 86, 52))"})
+   :filter ((get-in palette [:flame :ds]) "16px" "0.8")})
 (css/defstyles navigation-option-container [selected]
   {:margin "16px 40px"
    :padding "16px"
    :display "flex"
    :justify-content "center"
-   :background-color (if selected "rgba(223, 86, 52, 0.3)" "none")
+   :background-color (if selected ((get-in palette [:flame :alpha]) "0.3") "none")
    :border-radius "16px"
-   :color (:flame palette)})
+   :color (get-in palette [:flame :flat])})
 (css/defstyles navigation-icon []
   {:font-size "32px !important"})
