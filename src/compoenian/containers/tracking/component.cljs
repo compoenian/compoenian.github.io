@@ -133,14 +133,15 @@
         [:> mui/Box {:class (styles/stat-label)} "Notes"]
         [:> mui/Box {:class (styles/layout-notes-container)} (if (nil? notes) "-" notes)]]]
       [:> mui/Grid {:item true}
-       [:> mui/Grid {:container true
-                     :columns 2}
-        (for [layout layouts]
-          ^{:key layout} [:> mui/Grid {:item true
-                                       :xs 4}
-                          [:> mui/Box {:class (styles/layout-image-container)}
-                           [:img {:class (styles/layout-image)
-                                  :src layout}]]])]]]]))
+       [:> mui/Box {:class (styles/layout-grid-container)}
+        [:> mui/Grid {:container true
+                      :columnSpacing 0}
+         (for [layout layouts]
+           ^{:key layout} [:> mui/Grid {:item true
+                                        :xs 6}
+                           [:> mui/Box {:class (styles/layout-image-container)}
+                            [:img {:class (styles/layout-image)
+                                   :src layout}]]])]]]]]))
 
 (def legend-data [{:entry :action
                    :label "ACTION"
@@ -249,18 +250,18 @@
         [:> mui/Grid {:item true}
          [objective-display-container {:objectives (:objectives checkpoint-data)
                                        :target-zone target-zone}]]]]
-      [:> mui/Grid {:item true
-                    :style {:height "100%"}}
-       [:> mui/Box {:class (styles/card-spacer)} ""]]
-      [:> mui/Grid {:item true}
-       [:> mui/Box {:class (styles/zone-reference-container)}
-        [:> mui/Grid {:container true
-                      :direction "column"
+      #_[:> mui/Grid {:item true
                       :style {:height "100%"}}
-         [:> mui/Grid {:item true}
-          [:> mui/Box {:class (styles/zone-notes-container)}
-           [:> mui/Box {:class (styles/stat-label)} "NOTES"]
-           [:> mui/Box {:class (styles/inactive-text)} "-"]]]]]]]]))
+         [:> mui/Box {:class (styles/card-spacer)} ""]]
+      #_[:> mui/Grid {:item true}
+         [:> mui/Box {:class (styles/zone-reference-container)}
+          [:> mui/Grid {:container true
+                        :direction "column"
+                        :style {:height "100%"}}
+           [:> mui/Grid {:item true}
+            [:> mui/Box {:class (styles/zone-notes-container)}
+             [:> mui/Box {:class (styles/stat-label)} "NOTES"]
+             [:> mui/Box {:class (styles/inactive-text)} "-"]]]]]]]]))
 
 (defn container []
   [:> mui/Box {:class (styles/container-main)}

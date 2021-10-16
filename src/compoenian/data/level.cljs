@@ -98,8 +98,7 @@
                                                 :target "[Arcane Surge???] Support gem"}]
                                        [:quest {:objective :defeat
                                                 :target "Hillock"}]
-                                       [:travel {:method :zone}]]
-                          :gear :trickster-caustic}
+                                       [:travel {:method :zone}]]}
                          {:label "Caustic Arrow"
                           :zone :lioneyes-watch
                           :objectives [[:reward {:selection "Explosive Trap"
@@ -112,25 +111,22 @@
                                        [:inventory {:action "Equip Explosive Trap"}]
                                        [:vendor {:action "Purchase Iron Ring"
                                                  :vendor "Nessa"}]
-                                       [:travel {:method :zone}]]
-                          :gear :trickster-puncture}
+                                       [:travel {:method :zone}]]}
                          {:zone :the-coast
                           :objectives [[:travel {:method :activate}]
-                                       [:travel {:method :zone}]]
-                          :gear :trickster-puncture}
+                                       [:travel {:method :zone}]]}
                          {:zone :the-mud-flats
                           :objectives [[:quest {:objective :collect
                                                 :target "Rhoa eggs"}]
                                        [:quest {:objective :activate
                                                 :target "The Submerged Passage entrance lock"}]
-                                       [:travel {:method :zone}]]
-                          :gear :trickster-puncture}
+                                       [:travel {:method :zone}]]}
                          {:zone :the-submerged-passage
                           :objectives [[:travel {:method :activate}]
                                        [:travel {:method :waypoint}]]}
                          {:zone :the-coast
                           :objectives [[:travel {:method :zone}]]}
-                         {:label "Hellrake"
+                         {:label "Defeat Hellrake"
                           :zone :the-tidal-island
                           :objectives [[:quest {:objective :defeat
                                                 :target "Hellrake"
@@ -138,9 +134,9 @@
                                        [:quest {:objective :collect
                                                 :target "Medicine Chest"
                                                 :notes "Also collect currency, rare, and magic items. ID rares."}]
-                                       [:action {:action "Exit to character selection and re-log"}]]
-                          :gear :trickster-puncture}
+                                       [:action {:action "Exit to character selection and re-log"}]]}
                          {:label "Quicksilver Flask"
+                          :zone :lioneyes-watch
                           :objectives [[:reward {:selection "Contagion"
                                                  :giver "Tarkleigh"}]
                                        [:reward {:selection "Frostblink"
@@ -155,101 +151,81 @@
                                                  :vendor "Nessa"}]
                                        [:inventory {:action "Equip new links as necessary"}]
                                        [:travel {:method :waypoint
-                                                 :location "The Submerged Passage"}]]
-                          :gear :trickster-void}
-                         {:label "Enter The Ledge"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Ledge"
-                                                 :notes "Travel E to drop portal near The Flooded Depths then NW to The Ledge"}]]
-                          :gear :trickster-void}
-                         {:label "Enter The Climb"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :zone
-                                                 :location "The Climb"}]]
-                          :gear :trickster-void}
-                         {:label "Enter The Lower Prison"
+                                                 :location "The Submerged Passage"}]]}
+                         {:zone :the-submerged-passage
+                          :objectives [[:inventory {:action "Place portal at the bridge for later entry to the flooded depths."}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-ledge
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-climb
+                          :label "Free Navali"
                           :objectives [[:quest {:objective :defeat
-                                                :target "Pain"
-                                                :notes "Kill Pain to unlock Navali"}]
-                                       [:travel {:method :zone
-                                                 :location "The Lower Prison"}]]
-                          :gear :trickster-void}
-                         {:label "Enter The Flooded Depths"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :waypoint
-                                                 :location "Lioneye's Watch"}]
-                                       [:travel {:method :portal
-                                                 :location "The Submerged Passage"}]
-                                       [:travel {:method :zone
-                                                 :location "The Flooded Depths"}]]
-                          :gear :trickster-void}
+                                                :target "The Faun"
+                                                :notes "Kill The Faun to unlock Navali"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-lower-prison
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :lioneyes-watch
+                          :objectives [[:travel {:method :portal}]]}
+                         {:zone :the-submerged-passage
+                          :objectives [[:travel {:method :zone}]]}
                          {:label "Defeat The Dweller"
+                          :zone :the-flooded-depths
                           :objectives [[:quest {:objective :defeat
                                                 :target "The Dweller"
                                                 :notes "Loot and ID items as necessary"}]
-                                       [:action {:action "Exit to character selection and re-log"}]
-                                       [:reward {:selection "Void Manipulation Support"
+                                       [:action {:action "Exit to character selection and re-log"}]]}
+                         {:zone :lioneyes-watch
+                          :objectives [[:reward {:selection "Void Manipulation Support"
                                                  :giver "Nessa"}]
                                        [:reward {:selection "Skill Point book"
                                                  :giver "Tarkleigh"}]
                                        [:vendor {:action "Vendor unnecessary items"
                                                  :vendor "Tarkleigh"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Prison"}]]
-                          :gear :trickster-smoke}
-                         {:label "Enter The Warden's Chambers"
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-lower-prison
                           :objectives [[:quest {:objective :lab
                                                 :target "Trial of Agony"
                                                 :notes "Head N"}]
-                                       [:travel {:method :zone
-                                                 :location "The Upper Prison"}]
-                                       [:travel {:method :zone
-                                                 :location "The Warden's Quarters"}]
-                                       [:travel {:method :zone
-                                                 :location "The Warden's Chambers"}]]
-                          :gear :trickster-smoke}
+                                       [:travel {:method :zone}]]}
                          {:label "Defeat Brutus"
+                          :zone :the-upper-prison
                           :objectives [[:quest {:objective :defeat
                                                 :target "Brutus"
                                                 :notes "Puncture then caustic, followed by repeat Punctures for bleed"}]
-                                       [:action {:action "Exit to character selection and re-log"}]
-                                       [:vendor {:action "Purchase Mirage Archer Support"
+                                       [:action {:action "Exit to character selection and re-log"}]]}
+                         {:zone :lioneyes-watch
+                          :objectives [[:vendor {:action "Purchase Mirage Archer Support"
                                                  :vendor "Nessa"}]
                                        [:vendor {:action "Purchase Flame Dash"
                                                  :vendor "Nessa"}]
                                        [:reward {:selection "Smoke Mine"
                                                  :giver "Tarkleigh"}]
                                        [:inventory {:action "Equip new skill gems and setup skill hotkeys"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Prisoner's Gate"}]]
-                          :gear :trickster-toxic}
-                         {:label "Find The Allflame"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Ship's Graveyard (zone entrance)"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :zone
-                                                 :location "The Ship's Graveyard Cave"}]
-                                       [:quest {:objective :collect
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :prisoners-gate
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-ship-graveyard
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-ship-graveyard-cave
+                          :objectives [[:quest {:objective :collect
                                                 :target "The Allflame"
                                                 :notes "Travel NE to find The Slave Girl and open for The Allflame"}]
-                                       [:travel {:method :zone
-                                                 :location "The Ship's Graveyard (cave entrance)"}]]
-                          :gear :trickster-toxic}
+                                       [:travel {:method :zone}]]}
                          {:label "Defeat Fairgraves"
+                          :zone :the-ship-graveyard
                           :objectives [[:quest {:objective :defeat
                                                 :target "Fairgraves"
                                                 :notes "Talk to Fairgraves and clear the ensuing wave encounter"}]
-                                       [:travel {:method :zone
-                                                 :location "The Cavern of Wrath"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :waypoint
-                                                 :location "Lioneye's Watch"}]]
-                          :gear :trickster-toxic}
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-cavern-of-wrath
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
                          {:label "Toxic Rain"
+                          :zone :lioneyes-watch
                           :objectives [[:reward {:selection "Skill Point book"
                                                  :giver "Bestel"}]
                                        [:reward {:selection "Essence Drain"
@@ -258,22 +234,19 @@
                                                  :vendor "Nessa"}]
                                        [:vendor {:action "Vendor Iron Ring and int skill gem for cold resist ring"
                                                  :vendor "Nessa"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Cavern of Wrath"}]]
-                          :gear :trickster-skitterbots}
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-cavern-of-wrath
+                          :objectives [[:travel {:method :zone}]
+                                       [:travel {:method :zone
+                                                 :location "The Southern Forest"}]]}
                          {:label "Defeat Merveil"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Cavern of Anger"
-                                                 :notes "Travel NE"}]
-                                       [:travel {:method :zone
-                                                 :location "Merveil's Lair"}]
-                                       [:quest {:objective :defeat
+                          :zone :the-cavern-of-anger
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Merveil"}]
-                                       [:travel {:method :zone
-                                                 :location "The Southern Forest"}]]
-                          :gear :trickster-skitterbots}])
+                                       [:travel {:method :zone}]]}])
 
 (def act-02-definitions [{:label "Enter The Chamber of Sins"
+                          :zone :the-southern-forest
                           :objectives [[:travel {:method :zone
                                                  :location "The Forest Encampment"}]
                                        [:travel {:method :zone
@@ -285,8 +258,7 @@
                                                  :location "waypoint"
                                                  :notes "Waypoint is located in the center at path intersection then head N"}]
                                        [:travel {:method :zone
-                                                 :location "The Chamber of Sins Level 1"}]]
-                          :gear :trickster-skitterbots}
+                                                 :location "The Chamber of Sins Level 1"}]]}
                          {:label "Enter The Den"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"}]
@@ -295,24 +267,21 @@
                                        [:travel {:method :portal
                                                  :location "The Old Fields"}]
                                        [:travel {:method :zone
-                                                 :location "The Den"}]]
-                          :gear :trickster-skitterbots}
+                                                 :location "The Den"}]]}
                          {:label "Defeat The Great White Beast"
                           :objectives [[:quest {:objective :interact
                                                 :target "Einhar"}]
                                        [:quest {:objective :defeat
                                                 :target "The Great White Beast"
                                                 :notes "Head S"}]
-                                       [:action {:action "Exit to character selection and re-log"}]]
-                          :gear :trickster-skitterbots}
+                                       [:action {:action "Exit to character selection and re-log"}]]}
                          {:label "Enter The Chamber of Sins Level 2"
                           :objectives [[:reward {:selection "Quicksilver Flask"
                                                  :giver "Yeena"}]
                                        [:travel {:method :waypoint
                                                  :location "The Chamber of Sins Level 1"}]
                                        [:travel {:method :zone
-                                                 :location "The Chamber of Sins Level 2"}]]
-                          :gear :trickster-skitterbots}
+                                                 :location "The Chamber of Sins Level 2"}]]}
                          {:label "Defeat Fidelatis"
                           :objectives [[:quest {:objective :lab
                                                 :target "Trial of Agony"
@@ -320,16 +289,14 @@
                                        [:quest {:objective :defeat
                                                 :target "Fidelatis"
                                                 :notes "Head N"}]
-                                       [:action {:action "Exit to character selection and re-log"}]]
-                          :gear :trickster-skitterbots}
+                                       [:action {:action "Exit to character selection and re-log"}]]}
                          {:label "Summon Skitterbots"
                           :objectives [[:reward {:selection "Blood Rage"
                                                  :giver "Greust"}]
                                        [:vendor {:action "Purchase Frenzy, 3x Controlled Destruction, and Summon Skitterbots"
                                                  :vendor "Yeena"}]
                                        [:travel {:method :zone
-                                                 :location "The Riverways"}]]
-                          :gear :trickster-despair}
+                                                 :location "The Riverways"}]]}
                          {:label "Enter The Weaver's Chambers"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint (The Riverways)"
@@ -340,14 +307,12 @@
                                                  :location "waypoint (The Western Front)"
                                                  :notes "Follow path for waypoint then Head S"}]
                                        [:travel {:method :zone
-                                                 :location "The Weaver's Chambers"}]]
-                          :gear :trickster-despair}
+                                                 :location "The Weaver's Chambers"}]]}
                          {:label "Defeat The Weaver"
                           :objectives [[:quest {:objective :defeat
                                                 :target "The Weaver"
                                                 :notes "Head S"}]
-                                       [:action {:action "Exit to character selection and re-log"}]]
-                          :gear :trickster-despair}
+                                       [:action {:action "Exit to character selection and re-log"}]]}
                          {:label "Enter The Broken Bridge"
                           :objectives [[:reward {:selection "Faster Attacks Support"
                                                  :giver "Silk"}]
@@ -357,16 +322,14 @@
                                                  :location "The Crossroads"
                                                  :notes "Head N"}]
                                        [:travel {:method :zone
-                                                 :location "The Broken Bridge"}]]
-                          :gear :trickster-despair}
+                                                 :location "The Broken Bridge"}]]}
                          {:label "Defeat Kraityn"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"
                                                  :notes "Head N"}]
                                        [:quest {:objective :defeat
                                                 :target "Kraityn"}]
-                                       [:action {:action "Exit to character selection and re-log"}]]
-                          :gear :trickster-despair}
+                                       [:action {:action "Exit to character selection and re-log"}]]}
                          {:label "Defeat Oak"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Riverways"
@@ -380,8 +343,7 @@
                                                  :location "waypoint"
                                                  :notes "Head W from stronghold to find waypoint"}]
                                        [:travel {:method :waypoint
-                                                 :location "The Western Front"}]]
-                          :gear :trickster-despair}
+                                                 :location "The Western Front"}]]}
                          {:label "Help Alira"
                           :objectives [[:quest {:objective :interact
                                                 :target "Alira"
@@ -392,8 +354,7 @@
                                        [:quest {:objective :collect
                                                 :target "Thaumatic Seal"
                                                 :notes "Use seal to open nearby pathway entrance"}]
-                                       [:action {:action "Exit to character selection and re-log"}]]
-                          :gear :trickster-despair}
+                                       [:action {:action "Exit to character selection and re-log"}]]}
                          {:label "Enter The Vaal Ruins"
                           :objectives [[:travel {:method :waypoint
                                                  :location "Lioneye's Watch (Act 1)"}]
@@ -406,8 +367,7 @@
                                        [:travel {:method :waypoint
                                                  :location "The Wetlands"}]
                                        [:travel {:method :zone
-                                                 :location "The Vaal Ruins"}]]
-                          :gear :trickster-despair}
+                                                 :location "The Vaal Ruins"}]]}
                          {:label "Enter The Caverns"
                           :objectives [[:quest {:objective :activate
                                                 :target "Ruins boulder seal"
@@ -419,8 +379,7 @@
                                                  :notes "Head W to find the waypoint"}]
                                        [:travel {:method :zone
                                                  :location "The Caverns"
-                                                 :notes "Head N"}]]
-                          :gear :trickster-despair}
+                                                 :notes "Head N"}]]}
                          {:label "Enter The Pyramid Apex"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"
@@ -431,8 +390,7 @@
                                                  :location "Stair transitions"
                                                  :notes "Stair exit is always the opposit corner to entrance position"}]
                                        [:travel {:method :zone
-                                                 :location "Pyramid Apex"}]]
-                          :gear :trickster-despair}
+                                                 :location "Pyramid Apex"}]]}
                          {:label "Defeat The Vaal Oversoul"
                           :objectives [[:quest {:objective :activate
                                                 :target "The Dark Altar"}]
@@ -440,8 +398,7 @@
                                                 :target "The Vaal Oversoul"}]
                                        [:action {:action "Exit to character selection and re-log"}]
                                        [:travel {:method :waypoint
-                                                 :location "The City of Sarn"}]]
-                          :gear :trickster-despair}])
+                                                 :location "The City of Sarn"}]]}])
 
 (def act-03-definitions [
                          {:label "Enter The Crematorium"
@@ -452,8 +409,7 @@
                                        [:travel {:method :zone
                                                  :location "The Slums"}]
                                        [:travel {:method :zone
-                                                 :location "The Crematorium"}]]
-                          :gear :trickster-despair}
+                                                 :location "The Crematorium"}]]}
                          {:label "Defeat Piety"
                           :objectives [[:quest {:objective :lab
                                                 :target "Trial of Ascendancy"
@@ -463,8 +419,7 @@
                                                 :notes "Head S, then W"}]
                                        [:quest {:objective :collect
                                                 :target "Tolman's Bracelet"}]
-                                       [:action {:action "Exit to character selection and re-log"}]]
-                          :gear :trickster-despair}
+                                       [:action {:action "Exit to character selection and re-log"}]]}
                          {:label "Enter The Sewers"
                           :objectives [[:reward {:selection "Despair"
                                                  :giver "Maramoa"
@@ -472,8 +427,7 @@
                                        [:travel {:method :zone
                                                  :location "The Slums"}]
                                        [:travel {:method :zone
-                                                 :location "The Sewers"}]]
-                          :gear :trickster-slinger}
+                                                 :location "The Sewers"}]]}
                          {:label "Enter The Marketplace"
                           :objectives [[:quest {:objective :collect
                                                 :target "Platinum Busts"}]
@@ -481,8 +435,7 @@
                                                  :location "waypoint"
                                                  :notes "Head N from waypoint to find zone exit"}]
                                        [:travel {:method :zone
-                                                 :location "The Marketplace"}]]
-                          :gear :trickster-slinger}
+                                                 :location "The Marketplace"}]]}
                          {:label "Complete Catacombs Trial"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"
@@ -492,8 +445,7 @@
                                        [:quest {:objective :lab
                                                 :target "Trial of Ascendancy"
                                                 :notes "Head N"}]
-                                       [:action {:action "Exit to character selection and re-log"}]]
-                          :gear :trickster-slinger}
+                                       [:action {:action "Exit to character selection and re-log"}]]}
                          {:label "Enter The Battlefront"
                           :objectives [[:reward {:selection "Skill Point book"
                                                  :giver "Hargan"}]
@@ -503,8 +455,7 @@
                                                  :location "The Marketplace"}]
                                        [:travel {:method :zone
                                                  :location "The Battlefront"
-                                                 :notes "Head W, follow map border if not immediately spotted"}]]
-                          :gear :trickster-slinger}
+                                                 :notes "Head W, follow map border if not immediately spotted"}]]}
                          {:label "Enter The Docks"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"
@@ -514,14 +465,12 @@
                                                 :notes "Chest is located in the SW corner of the zone, collect the Ribbon Spool contained inside"}]
                                        [:travel {:method :zone
                                                  :location "The Docks"
-                                                 :notes "Head W"}]]
-                          :gear :trickster-slinger}
+                                                 :notes "Head W"}]]}
                          {:label "Collect Thaumatic Sulphite"
                           :objectives [[:quest {:objective :activate
                                                 :target "The Supply Container"
                                                 :notes "Head E, collect Thaumatic Sulphite contained inside, clear zone if under-leveled"}]
-                                       [:action {:action "Exit to character selection and re-log"}]]
-                          :gear :trickster-slinger}
+                                       [:action {:action "Exit to character selection and re-log"}]]}
                          {:label "Enter The Solaris Temple"
                           :objectives [[:inventory {:action "Vendor all rares to clear personal inventory"}]
                                        [:travel {:method :waypoint
@@ -532,8 +481,7 @@
                                                  :location "waypoint"
                                                  :notes "Head E, then N"}]
                                        [:travel {:method :zone
-                                                 :location "The Solaris Temple Level 2"}]]
-                          :gear :trickster-slinger}
+                                                 :location "The Solaris Temple Level 2"}]]}
                          {:label "Enter The Ebony Barracks"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"
@@ -546,8 +494,7 @@
                                                 :target "The Blockage"
                                                 :notes "Located immediately SW of the zone waypoint"}]
                                        [:travel {:method :zone
-                                                 :location "The Ebony Barracks"}]]
-                          :gear :trickster-slinger}
+                                                 :location "The Ebony Barracks"}]]}
                          {:label "Enter The Lunaris Temple"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint (The Ebony Barracks)"
@@ -558,15 +505,13 @@
                                                  :location "waypoint (The Lunaris Temple Level 1)"
                                                  :notes "Head W, follow the carpet tiles, waypoint is near the exit"}]
                                        [:travel {:method :zone
-                                                 :location "The Lunaris Temple Level 2"}]]
-                          :gear :trickster-slinger}
+                                                 :location "The Lunaris Temple Level 2"}]]}
                          {:label "Defeat Piety"
                           :objectives [[:quest {:objective :defeat
                                                 :target "Piety"
                                                 :notes "Head N and drop portal halfway as long walk and zone can be rippy"}]
                                        [:travel {:method :town-portal
-                                                 :location "The Sarn Encampment"}]]
-                          :gear :trickster-slinger}
+                                                 :location "The Sarn Encampment"}]]}
                          {:label "Spellslinger switch"
                           :objectives [[:inventory {:action "Vendor rares and clear personal inventory as needed"}]
                                        [:reward {:selection "Soulrend"
@@ -578,8 +523,7 @@
                                                  :vendor "Clarissa"}]
                                        [:inventory {:action "Setup new skill gems and links"}]
                                        [:travel {:method :waypoint
-                                                 :location "The Ebony Barracks"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Ebony Barracks"}]]}
                          {:label "Trickster Ascendancy"
                           :objectives [[:travel {:method :zone
                                                  :location "The Imperial Gardens"
@@ -593,8 +537,7 @@
                                                  :location "The Sarn Encampment"}]
                                        [:quest {:objective :ascend
                                                 :target "Normal Labyrinth"
-                                                :notes "If level 30 at this point then complete Trickster ascendancy (Patient Reaper)"}]]
-                          :gear :trickster-finish}
+                                                :notes "If level 30 at this point then complete Trickster ascendancy (Patient Reaper)"}]]}
                          {:label "Defeat Dominus"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Imperial Gardens"}]
@@ -608,8 +551,7 @@
                                        [:travel {:method :zone
                                                  :location "The Aqueduct"}]
                                        [:travel {:method :zone
-                                                 :location "Highgate"}]]
-                          :gear :trickster-finish}])
+                                                 :location "Highgate"}]]}])
 
 (def act-04-definitions [
                          {:label "Defeat Voll"
@@ -620,8 +562,7 @@
                                        [:quest {:objective :defeat
                                                 :target "Voll"}]
                                        [:travel {:method :town-portal
-                                                 :location "Highgate"}]]
-                          :gear :trickster-finish}
+                                                 :location "Highgate"}]]}
                          {:label "Enter The Crystal Veins"
                           :objectives [[:quest {:objective :activate
                                                 :target "Deshret's Seal"}]
@@ -636,8 +577,7 @@
                                        [:travel {:method :waypoint
                                                  :location "Highgate"}]
                                        [:quest {:objective :interact
-                                                :target "Tasuni"}]]
-                          :gear :trickster-finish}
+                                                :target "Tasuni"}]]}
                          {:label "Defeat Daresso"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Crystal Veins"}]
@@ -647,8 +587,7 @@
                                        [:quest {:objective :defeat
                                                 :target "Daresso"}]
                                        [:travel {:method :town-portal
-                                                 :location "Highgate"}]]
-                          :gear :trickster-finish}
+                                                 :location "Highgate"}]]}
                          {:label "Defeat Kaom"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Crystal Veins"}]
@@ -658,8 +597,7 @@
                                                 :location "Kaom"
                                                 :notes "Loot the Eye of Fury"}]
                                        [:travel {:method :town-portal
-                                                 :location "Highgate"}]]
-                          :gear :trickster-finish}
+                                                 :location "Highgate"}]]}
                          {:label "Defeat Piety"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Crystal Veins"}]
@@ -671,8 +609,7 @@
                                                  :location "The Belly of the Beast Level 2"}]
                                        [:quest {:objective :defeat
                                                 :target "Piety"
-                                                :notes "Talk to Piety after defeating her"}]]
-                          :gear :trickster-finish}
+                                                :notes "Talk to Piety after defeating her"}]]}
                          {:label "Collect Organs"
                           :objectives [[:travel {:method :zone
                                                  :location "The Harvest (zone entrance)"}]
@@ -692,8 +629,7 @@
                                        [:quest {:objective :defeat
                                                 :target "Maligaro/Deodre/Malachai (3rd)"}]
                                        [:travel {:method :town-portal
-                                                 :location "Highgate (with organs)"}]]
-                          :gear :trickster-finish}
+                                                 :location "Highgate (with organs)"}]]}
                          {:label "Defeat Malachai"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Harvest"}]
@@ -704,8 +640,7 @@
                                        [:quest {:objective :defeat
                                                 :target "Malachai"}]
                                        [:travel {:method :town-portal
-                                                 :location "Highgate"}]]
-                          :gear :trickster-finish}
+                                                 :location "Highgate"}]]}
                          {:label "Complete Act 4"
                           :objectives [[:quest {:objective :interact
                                                 :target "Dialla"}]
@@ -714,8 +649,7 @@
                                        [:travel {:method :zone
                                                  :location "The Slave Pens"}]
                                        [:travel {:method :zone
-                                                 :location "The Overseer's Tower"}]]
-                          :gear :trickster-finish}])
+                                                 :location "The Overseer's Tower"}]]}])
 
 (def act-05-definitions [
                          {:label "Defeat Justicar Casticus"
@@ -727,8 +661,7 @@
                                                 :target "The Miasmeter"}]
                                        [:quest {:objective :defeat
                                                 :target "Justicar Casticus"
-                                                :notes "Loot the Eyes of Zeal"}]]
-                          :gear :trickster-finish}
+                                                :notes "Loot the Eyes of Zeal"}]]}
                          {:label "Enter The Chamber of Innocence"
                           :objectives [[:travel {:method :zone
                                                  :location "Oriath Square"}]
@@ -739,16 +672,14 @@
                                        [:travel {:method :activate
                                                  :location "waypoint"}]
                                        [:travel {:method :waypoint
-                                                 :location "The Overseer's Tower"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Overseer's Tower"}]]}
                          {:label "Defeat Innocence"
                           :objectives [[:quest {:objective :interact
                                                 :target "Lani and Vilenta"}]
                                        [:travel {:method :waypoint
                                                  :location "The Chamber of Innocence"}]
                                        [:quest {:objective :defeat
-                                                :target "Innocence"}]]
-                          :gear :trickster-finish}
+                                                :target "Innocence"}]]}
                          {:label "Sign of Purity"
                           :objectives [[:travel {:method :zone
                                                  :location "The Torched Courts"}]
@@ -761,8 +692,7 @@
                                        [:quest {:objective :collect
                                                 :target "Sign of Purity"}]
                                        [:travel {:method :town-portal
-                                                 :location "The Overseer's Tower"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Overseer's Tower"}]]}
                          {:label "Kitava's Torments"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Ruined Square"
@@ -772,8 +702,7 @@
                                        [:quest {:objective :collect
                                                 :target "3x Kitava's Torments"}]
                                        [:travel {:method :town-portal
-                                                 :location "The Overseer's Tower"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Overseer's Tower"}]]}
                          {:label "Defeat Kitava"
                           :objectives [[:quest {:objective :interact
                                                 :target "Lani"}]
@@ -789,8 +718,7 @@
                                                  :location "The Cathedral Rooftop (act end)"}]
                                        [:quest {:objective :interact
                                                 :target "Lilly"
-                                                :notes "End of Act 5, sail to Wraeclast"}]]
-                          :gear :trickster-finish}])
+                                                :notes "End of Act 5, sail to Wraeclast"}]]}])
 
 (def act-06-definitions [
                          {:label "Enter The Karui Fortress"
@@ -805,8 +733,7 @@
                                                 :target "The Dishonoured Queen"
                                                 :notes "Loot The Eye of Conquest"}]
                                        [:travel {:method :zone
-                                                 :location "The Karui Fortress"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Karui Fortress"}]]}
                          {:label "Enter The Ridge"
                           :objectives [[:travel {:method :zone
                                                  :location "Tukohama's Keep"}]
@@ -815,8 +742,7 @@
                                        [:travel {:method :zone
                                                  :location "The Karui Fortress"}]
                                        [:travel {:method :zone
-                                                 :location "The Ridge"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Ridge"}]]}
                          {:label "Bestel's Manuscript"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"}]
@@ -828,8 +754,7 @@
                                                 :target "Storage Chest"
                                                 :notes "Loot Bestel's Manuscript"}]
                                        [:travel {:method :town-portal
-                                                 :location "Lioneye's Watch"}]]
-                          :gear :trickster-finish}
+                                                 :location "Lioneye's Watch"}]]}
                          {:label "Clear The Twilight Strand"
                           :objectives [[:travel {:method :zone
                                                  :location "The Twilight Strand"}]
@@ -841,8 +766,7 @@
                                        [:quest {:objective :interact
                                                 :target "Lilly, Bestel, and Tarkleigh"}]
                                        [:travel {:method :waypoint
-                                                 :location "The Ridge"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Ridge"}]]}
                          {:label "Enter Shavronne's Tower"
                           :objectives [[:travel {:method :zone
                                                  :location "The Lower Prison"}]
@@ -852,8 +776,7 @@
                                                 :target "Trial of Ascendancy"
                                                 :notes "Drop portal near exit of the zone if you don't discover it before then"}]
                                        [:travel {:method :zone
-                                                 :location "Shavronne's Tower"}]]
-                          :gear :trickster-finish}
+                                                 :location "Shavronne's Tower"}]]}
                          {:label "Defeat Brutus and Shavronne"
                           :objectives [[:travel {:method :zone
                                                  :location "Prison Rooftop"}]
@@ -865,8 +788,7 @@
                                        [:travel {:method :activate
                                                  :location "waypoint"}]
                                        [:travel {:method :waypoint
-                                                 :location "Lioneye's Watch"}]]
-                          :gear :trickster-finish}
+                                                 :location "Lioneye's Watch"}]]}
                          {:label "Enter Prisoner's Gate"
                           :objectives [[:quest {:objective :lab
                                                 :target "Trial of Ascendancy"
@@ -874,8 +796,7 @@
                                        [:quest {:objective :interact
                                                 :target "Tarkleigh"}]
                                        [:travel {:method :waypoint
-                                                 :location "Prisoner's Gate"}]]
-                          :gear :trickster-finish}
+                                                 :location "Prisoner's Gate"}]]}
                          {:label "Enter The Cavern of Anger"
                           :objectives [[:travel {:method :zone
                                                  :location "The Western Front"}]
@@ -890,8 +811,7 @@
                                        [:travel {:method :activate
                                                  :location "waypoint (The Southern Forest)"}]
                                        [:travel {:method :zone
-                                                 :location "The Cavern of Anger"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Cavern of Anger"}]]}
                          {:label "Activate The Beacon"
                           :objectives [[:quest {:objective :activate
                                                 :target "Flag Chest"
@@ -903,8 +823,7 @@
                                        [:quest {:objective :activate
                                                 :target "The Beacon with The Black Flag"}]
                                        [:quest {:objective :interact
-                                                :target "Weylam"}]]
-                          :gear :trickster-finish}
+                                                :target "Weylam"}]]}
                          {:label "Defeat The Brine King"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint (The Brine King's Reef)"}]
@@ -912,8 +831,7 @@
                                                 :target "The Brine King"}]
                                        [:inventory {:action "Select Pantheons if haven't already done so"}]
                                        [:quest {:objective :interact
-                                                :target "Weylam"}]]
-                          :gear :trickster-finish}])
+                                                :target "Weylam"}]]}])
 
 (def act-07-definitions [
                          {:label "Enter The Fellshrine Ruins"
@@ -927,8 +845,7 @@
                                                  :location "waypoint"
                                                  :notes "Head S"}]
                                        [:travel {:method :zone
-                                                 :location "The Fellshrine Ruins"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Fellshrine Ruins"}]]}
                          {:label "Maligaro's Map"
                           :objectives [[:travel {:method :zone
                                                  :location "The Crypt"}]
@@ -939,8 +856,7 @@
                                        [:quest {:objective :collect
                                                 :target "Maligaro's Map"}]
                                        [:travel {:method :town-portal
-                                                 :location "The Broken Bridge"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Broken Bridge"}]]}
                          {:label "Enter Maligaro's Sanctum"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Crossroads"}]
@@ -954,8 +870,7 @@
                                        [:quest {:objective :activate
                                                 :target "Maligaro's Map Device"}]
                                        [:travel {:method :zone
-                                                 :location "Maligaro's Sanctum"}]]
-                          :gear :trickster-finish}
+                                                 :location "Maligaro's Sanctum"}]]}
                          {:label "Defeat Maligaro"
                           :objectives [[:travel {:method :zone
                                                  :location "Maligaro's Workshop"}]
@@ -968,8 +883,7 @@
                                                  :giver "Maligaro"}]
                                        [:travel {:method :zone
                                                  :location "The Chamber of Sins Level 2"
-                                                 :notes "Head the direction of the path directly behind Silk away from the map device"}]]
-                          :gear :trickster-finish}
+                                                 :notes "Head the direction of the path directly behind Silk away from the map device"}]]}
                          {:label "Defeat Gruest"
                           :objectives [[:quest {:objective :lab
                                                 :target "Trial of Ascendancy"}]
@@ -983,8 +897,7 @@
                                        [:quest {:objective :defeat
                                                 :target "Gruest"}]
                                        [:travel {:method :zone
-                                                 :location "The Northern Forest"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Northern Forest"}]]}
                          {:label "Enter The Vaal City"
                           :objectives [[:travel {:method :zone
                                                  :location "The Causeway"
@@ -995,8 +908,7 @@
                                                 :target "Alva"
                                                 :notes "Talk to Alva to make her available in your hideout"}]
                                        [:travel {:method :zone
-                                                 :location "The Vaal City"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Vaal City"}]]}
                          {:label "Enter The Dread Thicket"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"}]
@@ -1009,8 +921,7 @@
                                        [:travel {:method :portal
                                                  :location "The Northern Forest"}]
                                        [:travel {:method :zone
-                                                 :location "The Dread Thicket"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Dread Thicket"}]]}
                          {:label "Defeat Gruthkul"
                           :objectives [[:quest {:objective :collect
                                                 :target "Fireflies"}]
@@ -1020,16 +931,14 @@
                                                 :target "Gruthkul"
                                                 :notes "Return to The Dread Thicket after if still more fireflies to collect"}]
                                        [:travel {:method :town-portal
-                                                 :location "The Broken Bridge"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Broken Bridge"}]]}
                          {:label "Return to The Riverways"
                           :objectives [[:quest {:objective :interact
                                                 :target "Eramir, and Weylam"}]
                                        [:reward {:selection "Granite Flask"
                                                  :giver "Eramir"}]
                                        [:travel {:method :waypoint
-                                                 :location "The Riverways (Act 6)"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Riverways (Act 6)"}]]}
                          {:label "Defeat Ryslatha"
                           :objectives [[:travel {:method :zone
                                                  :location "The Wetlands"
@@ -1039,8 +948,7 @@
                                        [:quest {:objective :defeat
                                                 :target "Ryslatha, the Puppet Mistress"}]
                                        [:travel {:method :town-portal
-                                                 :location "Lioneye's Watch"}]]
-                          :gear :trickster-finish}
+                                                 :location "Lioneye's Watch"}]]}
                          {:label "Defeat Abberath"
                           :objectives [[:travel {:method :waypoint
                                                  :location "Prisoner's Gate (Act 6)"}]
@@ -1051,15 +959,13 @@
                                        [:travel {:method :town-portal
                                                  :location "Lioneye's Watch"}]
                                        [:quest {:objective :interact
-                                                :target "Bestel, and Tarkleigh"}]]
-                          :gear :trickster-finish}
+                                                :target "Bestel, and Tarkleigh"}]]}
                          {:label "Complete Cruel Labyrinth"
                           :objectives [[:travel {:method :waypoint
                                                  :location "Aspirant's Path"}]
                                        [:quest {:objective :ascend
                                                 :target "Cruel Labyrinth"
-                                                :notes "Take Ghost Dance for the increased movement speed"}]]
-                          :gear :trickster-finish}
+                                                :notes "Take Ghost Dance for the increased movement speed"}]]}
                          {:label "Complete Act 7"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Vaal City"}]
@@ -1076,8 +982,7 @@
                                        [:travel {:method :zone
                                                  :location "The Sarn Ramparts"}]
                                        [:travel {:method :zone
-                                                 :location "The Sarn Encampment"}]]
-                          :gear :trickster-finish}])
+                                                 :location "The Sarn Encampment"}]]}])
 
 (def act-08-definitions [{:label "Defeat Doedre"
                           :objectives [[:travel {:method :zone
@@ -1089,8 +994,7 @@
                                        [:quest {:objective :defeat
                                                 :target "Doedre"}]
                                        [:travel {:method :zone
-                                                 :location "The Sewer Outlet"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Sewer Outlet"}]]}
                          {:label "Enter The Grain Gate"
                           :objectives [[:travel {:method :zone
                                                  :location "The Quay"
@@ -1100,8 +1004,7 @@
                                                 :notes "Follow the SW wall to find the bridged island containing the casket and loot the Ankh of Eternity"}]
                                        [:travel {:method :zone
                                                  :location "The Grain Gate"
-                                                 :notes "Drop a portal at the start of the path to the Resurrection Site"}]]
-                          :gear :trickster-finish}
+                                                 :notes "Drop a portal at the start of the path to the Resurrection Site"}]]}
                          {:label "Enter The Solaris Temple"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"
@@ -1111,8 +1014,7 @@
                                        [:travel {:method :zone
                                                  :location "The Imperial Fields"}]
                                        [:travel {:method :zone
-                                                 :location "The Solaris Temple Level 1"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Solaris Temple Level 1"}]]}
                          {:label "Defeat Holman"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"}]
@@ -1126,8 +1028,7 @@
                                                 :target "Holman"
                                                 :notes "Loot the amulet"}]
                                        [:travel {:method :town-portal
-                                                 :location "The Sarn Encampment (portal)"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Sarn Encampment (portal)"}]]}
                          {:label "Defeat Dawn"
                           :objectives [[:quest {:objective :interact
                                                 :target "Clarissa, Hargan, and Maramoa"}]
@@ -1139,8 +1040,7 @@
                                                 :target "Dawn"
                                                 :notes "Loot the Sun Orb"}]
                                        [:travel {:method :town-portal
-                                                 :location "The Sarn Encampment"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Sarn Encampment"}]]}
                          {:label "Enter The Lunaris Temple"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Solaris Temple Level 1"}]
@@ -1153,8 +1053,7 @@
                                        [:travel {:method :activate
                                                  :location "waypoint"}]
                                        [:travel {:method :zone
-                                                 :location "The Lunaris Temple Level 1"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Lunaris Temple Level 1"}]]}
                          {:label "Defeat Dusk"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"}]
@@ -1164,8 +1063,7 @@
                                                 :target "Dusk"
                                                 :notes "Loot the Moon Orb"}]
                                        [:travel {:method :town-portal
-                                                 :location "The Sarn Encampment"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Sarn Encampment"}]]}
                          {:label "Complete Act 8"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Lunaris Concourse"}]
@@ -1182,9 +1080,8 @@
                                                  :location "The Blood Aqueduct"
                                                  :notes "Farm here for levels and gear, at least 62 and work on resistances"}]
                                        [:travel {:method :zone
-                                                 :location "Highgate"}]]
+                                                 :location "Highgate"}]]}])
 
-                          :gear :trickster-finish}])
 
 (def act-09-definitions [{:label "Defeat Hector Titucius"
                           :objectives [[:travel {:method :waypoint
@@ -1198,8 +1095,7 @@
                                        [:quest {:objective :lab
                                                 :target "Trial of Ascendancy"}]
                                        [:travel {:method :zone
-                                                 :location "The High Gardens"}]]
-                          :gear :trickster-finish}
+                                                 :location "The High Gardens"}]]}
                          {:label "Defeat Yugul"
                           :objectives [[:travel {:method :zone
                                                  :location "The Pools of Terror"}]
@@ -1211,8 +1107,7 @@
                                                 :target "Hargan"}]
                                        [:travel {:method :waypoint
                                                  :location "Highgate"}]]
-                          :current-gear :trickster-slinger
-                          :gear :trickster-finish}
+                          :current-gear :trickster-slinger}
                          {:label "Collect The Storm Blade"
                           :objectives [[:travel {:method :zone
                                                  :location "The Descent"}]
@@ -1226,8 +1121,7 @@
                                        [:travel {:method :activate
                                                  :location "waypoint"}]
                                        [:travel {:method :waypoint
-                                                 :location "Highgate"}]]
-                          :gear :trickster-finish}
+                                                 :location "Highgate"}]]}
                          {:label "Defeat Shakari"
                           :objectives [[:quest {:objective :interact
                                                 :target "Petarus and Vanja, Jun, Sin, and Petarus and Vanja again"
@@ -1242,8 +1136,7 @@
                                        [:quest {:objective :defeat
                                                 :target "Shakari"}]
                                        [:travel {:method :town-portal
-                                                 :location "Highgate"}]]
-                          :gear :trickster-finish}
+                                                 :location "Highgate"}]]}
                          {:label "Defeat The Basilisk"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Vastiri Desert"}]
@@ -1258,8 +1151,7 @@
                                                 :target "The Basilisk"
                                                 :notes "Loot the Basilisk Acid"}]
                                        [:travel {:method :town-portal
-                                                 :location "Highgate"}]]
-                          :gear :trickster-finish}
+                                                 :location "Highgate"}]]}
                          {:label "Enter The Quarry"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Foothills"}]
@@ -1271,8 +1163,7 @@
                                        [:travel {:method :activate
                                                  :location "waypoint"}]
                                        [:travel {:method :zone
-                                                 :location "The Quarry"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Quarry"}]]}
                          {:label "Defeat General Adus"
                           :objectives [[:travel {:method :activate
                                                  :location "waypoint"}]
@@ -1285,8 +1176,7 @@
                                                 :target "General Adus"
                                                 :notes "Loot Trarthan Powder"}]
                                        [:travel {:method :town-portal
-                                                 :location "Highgate"}]]
-                          :gear :trickster-finish}
+                                                 :location "Highgate"}]]}
                          {:label "Defeat Garukhan"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Quarry"}]
@@ -1299,8 +1189,7 @@
                                        [:travel {:method :town-portal
                                                  :location "Highgate"}]
                                        [:quest {:objective :interact
-                                                :target "Irasha"}]]
-                          :gear :trickster-finish}
+                                                :target "Irasha"}]]}
                          {:label "Enter The Black Core"
                           :objectives [[:travel {:method :waypoint
                                                  :location "The Quarry"}]
@@ -1311,8 +1200,7 @@
                                        [:travel {:method :zone
                                                  :location "The Rotting Core"}]
                                        [:travel {:method :zone
-                                                 :location "The Black Core"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Black Core"}]]}
                          {:label "Defeat The Depraved Trinity"
                           :objectives [[:quest {:objective :interact
                                                 :target "Sin (1st)"}]
@@ -1327,8 +1215,7 @@
                                        [:travel {:method :town-portal
                                                  :location "Highgate"}]
                                        [:travel {:method :waypoint
-                                                 :location "Oriath Docks"}]]
-                          :gear :trickster-finish}])
+                                                 :location "Oriath Docks"}]]}])
 
 (def act-10-definitions [
                          {:label "Enter The Ravaged Square"
@@ -1347,8 +1234,7 @@
                                                  :location "waypoint"
                                                  :notes "Drop a portal in the open area near to zone entrance, Head E"}]
                                        [:travel {:method :waypoint
-                                                 :location "Oriath Docks"}]]
-                          :gear :trickster-finish}
+                                                 :location "Oriath Docks"}]]}
                          {:label "Enter The Control Blocks"
                           :objectives [[:travel {:method :portal
                                                  :location "The Ravaged Square (1st)"}]
@@ -1358,8 +1244,7 @@
                                        [:travel {:method :activate
                                                  :location "waypoint"}]
                                        [:travel {:method :waypoint
-                                                 :location "The Ravaged Square (2nd)"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Ravaged Square (2nd)"}]]}
                          {:label "Collect The Elixir of Allure"
                           :objectives [[:travel {:method :zone
                                                  :location "The Ossuary"}]
@@ -1368,8 +1253,7 @@
                                        [:quest {:objective :collect
                                                 :target "The Elixir of Allure"}]
                                        [:travel {:method :town-portal
-                                                 :location "Oriath Docks"}]]
-                          :gear :trickster-finish}
+                                                 :location "Oriath Docks"}]]}
                          {:label "Complete Merciless Lab"
                           :objectives [[:quest {:objective :interact
                                                 :target "Weylam, Bannon, and Lani"}]
@@ -1381,8 +1265,7 @@
                                        [:travel {:method :waypoint
                                                  :location "Oriath Docks"}]
                                        [:travel {:method :waypoint
-                                                 :location "The Control Blocks"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Control Blocks"}]]}
                          {:label "Defeat Vilenta"
                           :objectives [[:quest {:objective :defeat
                                                 :target "Vilenta"}]
@@ -1391,8 +1274,7 @@
                                        [:quest {:objective :interact
                                                 :target "Lani"}]
                                        [:travel {:method :waypoint
-                                                 :location "The Ravaged Square"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Ravaged Square"}]]}
                          {:label "Defeat Avarius"
                           :objectives [[:travel {:method :zone
                                                  :location "The Torched Courts"
@@ -1407,8 +1289,7 @@
                                                 :target "Avarius"
                                                 :notes "Loot The Staff of Purity"}]
                                        [:travel {:method :town-portal
-                                                 :location "Oriath Docks"}]]
-                          :gear :trickster-finish}
+                                                 :location "Oriath Docks"}]]}
                          {:label "Enter The Canals"
                           :objectives [[:quest {:objective :interact
                                                 :target "Bannon, Lani, and Lilly"}]
@@ -1417,8 +1298,7 @@
                                        [:quest {:objective :interact
                                                 :target "Innocence"}]
                                        [:travel {:method :zone
-                                                 :location "The Canals"}]]
-                          :gear :trickster-finish}
+                                                 :location "The Canals"}]]}
                          {:label "Defeat Kitava"
                           :objectives [[:travel {:method :zone
                                                  :location "The Feeding Trough"}]
@@ -1433,13 +1313,11 @@
                                        [:travel {:method :town-portal
                                                  :location "Oriath"}]
                                        [:reward {:selection "Skill Point book"
-                                                 :giver "Lani"}]]
-                          :gear :trickster-finish}])
+                                                 :giver "Lani"}]]}])
 
 (def end-campaign-definitions [{:name "Still sane exile?"
                                 :objectives [[:reward {:selection "Skill Point book"
-                                                       :giver "Lani"}]]
-                                :gear :trickster-finish}])
+                                                       :giver "Lani"}]]}])
 
 (def act-definitions [{:act-id :act-01
                        :data act-01-definitions}

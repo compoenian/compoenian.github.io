@@ -52,13 +52,19 @@
     [:> mui/Box {:class (styles/panel-title :bold)} selection]]])
 
 (defn quest-display-container [{:keys [objective target] :as quest}]
-  [:> mui/Grid {:container true
-                :direction "row"
-                :spacing 2}
+  [:> mui/Grid {:cotainer true
+                :direction "column"}
    [:> mui/Grid {:item true}
-    [:> mui/Box {:class (styles/panel-title :active)} (name objective)]]
-   [:> mui/Grid {:item true}
-    [:> mui/Box {:class (styles/panel-title :bold)} target]]])
+    [:> mui/Grid {:container true
+                  :direction "row"
+                  :spacing 2}
+     [:> mui/Grid {:item true}
+      [:> mui/Box {:class (styles/panel-title :active)} (name objective)]]
+     [:> mui/Grid {:item true}
+      [:> mui/Box {:class (styles/panel-title :bold)} target]]]]
+   (if-let [notes (:notes quest)]
+     [:> mui/Grid {:item true}
+      [:> mui/Box {:class (styles/panel-description :active)} notes]])])
 
 (defn generic-display-container []
   [:<> {}

@@ -263,10 +263,13 @@
   {:font-size "16px"
    :max-width "400px"
    :color ((get-in palette [:white :alpha]) "0.8")
-   :margin "8px 0"})
+   :margin "8px 0 16px"})
+
+(css/defstyles layout-grid-container []
+  {:max-width "400px"})
 
 (css/defstyles layout-image-container []
-  {:max-width "180px"})
+  {:padding "0 10px"})
 
 (css/defstyles layout-image []
   {:max-width "180px"})

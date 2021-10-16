@@ -17,12 +17,13 @@
                 :bold ((get-in palette [:white :alpha]) "1.0")} status)})
 
 (css/defstyles panel-description [status]
-  {:font-size "10px"
+  {:margin-top "4px"
+   :font-size "12px"
    :white-space "nowrap"
    :overflow "hidden"
    :text-overflow "ellipsis"
    :color (get {:inactive ((get-in palette [:white :alpha]) "0.6")
-                :active ((get-in palette [:white :alpha]) "0.6")
+                :active ((get-in palette [:white :alpha]) "0.8")
                 :pending ((get-in palette [:white :alpha]) "0.4")} status)})
 
 (css/defstyles panel-timestamp [status]
