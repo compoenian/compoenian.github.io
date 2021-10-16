@@ -1,9 +1,9 @@
 (ns compoenian.components.note-panel.component
   (:require
    [cljs.pprint :refer [pprint]]
-   [re-frame.core :as rf]
    [compoenian.components.note-panel.styles :as styles]
-   ["@material-ui/core" :as mui]))
+   ["@material-ui/core" :as mui]
+   [re-frame.core :as rf]))
 
 (defn panel-bar [{:keys [status]}]
   [:> mui/Grid {:item true}

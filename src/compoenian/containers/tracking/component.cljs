@@ -5,6 +5,7 @@
    [re-frame.core :as rf]
    [compoenian.containers.tracking.styles :as styles]
    [compoenian.components.note-panel.component :as note-panel]
+   [compoenian.components.objective-panel.component :as objective-panel]
    [compoenian.data.styles :refer [palette]]
    [compoenian.events.tracking :as events.tracking]
    [compoenian.subs.tracking :as subs.tracking]
@@ -191,9 +192,22 @@
       ^{:key (:label datum)} [:> mui/Grid {:item true}
                               [legend-entry-container datum]])]])
 
+(defn objective-display-container [{:keys [objectives target-zone]}]
+  [:> mui/Box {}
+   [:> mui/Grid {:container true
+                 :direction "column"
+                 :spacing 1
+                 :style {:width "100%"}}
+    (for [i (range (count objectives))]
+      (let [objective (nth objectives i)
+            objective-key (str (first objective) i)]
+        ^{:key objective-key} [:> mui/Grid {:item true}
+                               [objective-panel/container {:objective objective
+                                                           :target-zone target-zone}]]))]])
+
 (defn zone-card []
-  (let [{:keys [checkpoint-data forward-checkpoint-data]} @(rf/subscribe [::subs.tracking/active-zone])]
-    (pprint checkpoint-data)
+  (let [{:keys [checkpoint-data forward-checkpoint-data]} @(rf/subscribe [::subs.tracking/active-zone])
+        target-zone (get-in forward-checkpoint-data [:zone :name])]
     [:> mui/Box {:class (styles/zone-panel)}
      [:> mui/Grid {:container true
                    :direction "row"
@@ -231,35 +245,10 @@
           [:> mui/Grid {:item true}
            [:> mui/Box {:class (styles/current-zone-container)}
             [:> mui/Box {:class (styles/stat-label)} "NEXT ZONE"]
-            [:> mui/Box {:class (styles/stat-value)} (get-in forward-checkpoint-data [:zone :name])]]]]]
+            [:> mui/Box {:class (styles/stat-value)} target-zone]]]]]
         [:> mui/Grid {:item true}
-         [:> mui/Box {}
-          [:> mui/Grid {:container true
-                        :direction "column"
-                        :spacing 1
-                        :style {:width "100%"}}
-           [:> mui/Grid {:item true}
-            [note-panel/container {:status :active
-                                   :direction :right}
-             [:> mui/Grid {:container true
-                           :direction "row"}
-              [:> mui/Grid {:item true
-                            :xs true}
-               [:> mui/Box {:class (styles/panel-title :active)} "active panel title"]
-               [:> mui/Box {:class (styles/panel-description :active)} "active panel description"]]
-              [:> mui/Grid {:item true}
-               [:> mui/Box {:class (styles/panel-timestamp :active)} "-"]]]]]
-           [:> mui/Grid {:item true}
-            [note-panel/container {:status :pending
-                                   :direction :right}
-             [:> mui/Grid {:container true
-                           :direction "row"}
-              [:> mui/Grid {:item true
-                            :xs true}
-               [:> mui/Box {:class (styles/panel-title :active)} "active panel title"]
-               [:> mui/Box {:class (styles/panel-description :active)} "active panel description"]]
-              [:> mui/Grid {:item true}
-               [:> mui/Box {:class (styles/panel-timestamp :active)} "-"]]]]]]]]]]
+         [objective-display-container {:objectives (:objectives checkpoint-data)
+                                       :target-zone target-zone}]]]]
       [:> mui/Grid {:item true
                     :style {:height "100%"}}
        [:> mui/Box {:class (styles/card-spacer)} ""]]
