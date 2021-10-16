@@ -24,7 +24,7 @@
 (defn dispatch
   [route]
   (let [panel (keyword (str (name (:handler route)) "-panel"))]
-    (re-frame/dispatch [::events/set-active-panel panel])))
+    nil #_(re-frame/dispatch [::events/set-active-panel panel])))
 
 (defonce history
   (pushy/pushy dispatch parse))

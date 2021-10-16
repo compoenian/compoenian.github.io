@@ -70,14 +70,16 @@
 (css/defstyles timer-action-container [content-icon]
   {:text-align "center"
    :cursor "pointer"
-   :color (get {:start (get-in palette [:keppel :flat])
+   :color (get {:back (get-in palette [:onyx :flat])
+                :start (get-in palette [:keppel :flat])
                 :pause (get-in palette [:maize-crayola :flat])
                 :reset (get-in palette [:flame :flat])} content-icon)})
 
 (css/defstyles timer-action-icon [content-icon]
   {:margin "0 auto"
    :font-size "32px !important"
-   :filter (get {:start ((get-in palette [:keppel :ds]) "8px" "0.4")
+   :filter (get {:back ((get-in palette [:onyx :ds]) "8px" "0.4")
+                 :start ((get-in palette [:keppel :ds]) "8px" "0.4")
                  :pause ((get-in palette [:maize-crayola :ds]) "8px" "0.4")
                  :reset ((get-in palette [:flame :ds]) "8px" "0.4")} content-icon)})
 
