@@ -118,19 +118,29 @@
                                                                "strokeLinecap" "round"}}}
       [:> mui/Box {:class (styles/progress-bar-text)} formatted]]]))
 
-(defn stats-card []
-  [:> mui/Box {:class (styles/stats-panel)}
-   [:> mui/Grid {:container true
-                 :direction "column"
-                 :style {:height "100%"}}
-    [:> mui/Grid {:item true}
-     [:> mui/Box {:class (styles/card-title)} "STATS"]]
-    [:> mui/Grid {:item true}
-     [:> mui/Box {:class (styles/target-level-container)}
-      [:> mui/Box {:class (styles/stat-label)} "Target Level"]
-      [:> mui/Box {:class (styles/stat-value)} "32"]]]
-    [:> mui/Grid {:item true}
-     [:> mui/Box {:class (styles/inactive-text)} "-"]]]])
+(defn layout-card []
+  (let [{:keys [checkpoint-data]} @(rf/subscribe [::subs.tracking/active-zone])
+        {:keys [notes layouts]} (:zone checkpoint-data)]
+    (pprint layouts)
+    [:> mui/Box {:class (styles/stats-panel)}
+     [:> mui/Grid {:container true
+                   :direction "column"
+                   :style {:height "100%"}}
+      [:> mui/Grid {:item true}
+       [:> mui/Box {:class (styles/card-title)} "LAYOUT"]]
+      [:> mui/Grid {:item true}
+       [:> mui/Box {:class (styles/target-level-container)}
+        [:> mui/Box {:class (styles/stat-label)} "Notes"]
+        [:> mui/Box {:class (styles/layout-notes-container)} (if (nil? notes) "-" notes)]]]
+      [:> mui/Grid {:item true}
+       [:> mui/Grid {:container true
+                     :columns 2}
+        (for [layout layouts]
+          ^{:key layout} [:> mui/Grid {:item true
+                                       :xs 4}
+                          [:> mui/Box {:class (styles/layout-image-container)}
+                           [:img {:class (styles/layout-image)
+                                  :src layout}]]])]]]]))
 
 (def legend-data [{:entry :action
                    :label "ACTION"
@@ -219,7 +229,9 @@
              [:> mui/Grid {:item true}
               [:> mui/Box {:class (styles/stat-value)} (get-in checkpoint-data [:zone :name])]]
              [:> mui/Grid {:item true}
-              [:> mui/Box {:class (styles/stat-value-append)} (goog.string/format "%02d" (get-in checkpoint-data [:zone :level]))]]]]]
+              [:> mui/Box {:class (styles/stat-value-append)} (if-let [level (get-in checkpoint-data [:zone :level])]
+                                                                (goog.string/format "%02d" level)
+                                                                "-")]]]]]
           [:> mui/Grid {:item true}
            [:> mui/Box {}
             [:> DoubleArrow {:class (styles/zone-progress-icon)}]]]
@@ -231,7 +243,9 @@
              [:> mui/Grid {:item true}
               [:> mui/Box {:class (styles/stat-value)} target-zone]]
              [:> mui/Grid {:item true}
-              [:> mui/Box {:class (styles/stat-value-append)} (goog.string/format "%02d" (get-in forward-checkpoint-data [:zone :level]))]]]]]]]
+              [:> mui/Box {:class (styles/stat-value-append)} (if-let [level (get-in forward-checkpoint-data [:zone :level])]
+                                                                (goog.string/format "%02d" level)
+                                                                "-")]]]]]]]
         [:> mui/Grid {:item true}
          [objective-display-container {:objectives (:objectives checkpoint-data)
                                        :target-zone target-zone}]]]]
@@ -285,10 +299,10 @@
                    :direction "column"
                    :style {:height "100%"}}
       [:> mui/Grid {:item true
-                    :style {:margin-bottom "40px"}}
+                    :style {:height "calc(100% - 552px)"
+                            :margin-bottom "40px"}}
+       [layout-card]]
+      [:> mui/Grid {:item true}
        [:> mui/Box {:class (styles/skillpoint-panel)}
         [:img {:class (styles/passive-image)
-               :src "img/lightning-trap.PNG"}]]]
-      [:> mui/Grid {:item true
-                    :style {:height "calc(100% - 552px)"}}
-       [stats-card]]]]]])
+               :src "img/lightning-trap.PNG"}]]]]]]])

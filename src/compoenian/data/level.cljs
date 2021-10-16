@@ -8,42 +8,85 @@
                                           :level nil}
                          :the-coast {:name "The Coast"
                                      :level 2
-                                     :waypoint true}
+                                     :waypoint true
+                                     :notes "Stick to the right side, following the wall."
+                                     :layouts ["img/layouts/act01/the-coast-01.png"
+                                               "img/layouts/act01/the-coast-02.png"
+                                               "img/layouts/act01/the-coast-03.png"]}
                          :the-tidal-island {:name "The Tidal Island"
-                                            :level 3}
+                                            :level 3
+                                            :notes "The layout is circular. Head left first. The side without a cliff is the shortest way."}
                          :the-mud-flats {:name "The Mud Flats"
-                                         :level 4}
+                                         :level 4
+                                         :notes "Green circles indicate the area in which the quest items are grouped. Little rivers connect the three items."
+                                         :layouts ["img/layouts/act01/the-mud-flats-01.png"
+                                                   "img/layouts/act01/the-mud-flats-02.png"]}
                          :the-fetid-pool {:name "The Fetid Pool"
                                           :level 5}
                          :the-submerged-passage {:name "The Submerged Passage"
                                                  :level 5
-                                                 :waypoint true}
+                                                 :waypoint true
+                                                 :layouts ["img/layouts/act01/the-submerged-passage-01.png"
+                                                           "img/layouts/act01/the-submerged-passage-02.png"
+                                                           "img/layouts/act01/the-submerged-passage-03.png"]}
                          :the-flooded-depths {:name "The Flooded Depths"
-                                              :level 6}
+                                              :level 6
+                                              :layouts ["img/layouts/act01/the-flooded-depths-01.png"
+                                                        "img/layouts/act01/the-flooded-depths-02.png"
+                                                        "img/layouts/act01/the-flooded-depths-03.png"]}
                          :the-ledge {:name "The Ledge"
                                      :level 6
-                                     :waypoint true}
+                                     :waypoint true
+                                     :notes "This layout is always linear, there are little totems on one side of the waypoint, this side will always be the side at which the exit is located."}
                          :the-climb {:name "The Climb"
                                      :level 7
-                                     :waypoint true}
+                                     :waypoint true
+                                     :layouts ["img/layouts/act01/the-climb-01.png"
+                                               "img/layouts/act01/the-climb-02.png"]}
                          :the-lower-prison {:name "The Lower Prison"
                                             :level 8
-                                            :waypoint true}
+                                            :waypoint true
+                                            :trial true
+                                            :layouts ["img/layouts/act01/the-lower-prison-01.png"
+                                                      "img/layouts/act01/the-lower-prison-02.png"
+                                                      "img/layouts/act01/the-lower-prison-03.png"
+                                                      "img/layouts/act01/the-lower-prison-04.png"]}
                          :the-upper-prison {:name "The Upper Prison"
-                                            :level 9}
+                                            :level 9
+                                            :layouts ["img/layouts/act01/the-upper-prison-01.png"
+                                                      "img/layouts/act01/the-upper-prison-02.png"
+                                                      "img/layouts/act01/the-upper-prison-03.png"
+                                                      "img/layouts/act01/the-upper-prison-04.png"
+                                                      "img/layouts/act01/the-upper-prison-05.png"]}
                          :prisoners-gate {:name "Prisoner's Gate"
                                           :level 10
-                                          :waypoint true}
+                                          :waypoint true
+                                          :notes "Look for the side of the road that has the ledge down, usually on the right side."
+                                          :layouts ["img/layouts/act01/the-prisoners-gate-01.png"
+                                                    "img/layouts/act01/the-prisoners-gate-02.png"
+                                                    "img/layouts/act01/the-prisoners-gate-03.png"
+                                                    "img/layouts/act01/the-prisoners-gate-04.png"]}
                          :the-ship-graveyard {:name "The Ship Graveyard"
                                               :level 11
-                                              :waypoint true}
+                                              :waypoint true
+                                              :notes "Look for waypoint first, then find Fairgraves, and move away from the plateau, generally up or down."
+                                              :layouts ["img/layouts/act01/the-ship-graveyard-01.png"
+                                                        "img/layouts/act01/the-ship-graveyard-02.png"
+                                                        "img/layouts/act01/the-ship-graveyard-03.png"
+                                                        "img/layouts/act01/the-ship-graveyard-04.png"]}
                          :the-ship-graveyard-cave {:name "The Ship Graveyard Cave"
                                                    :level 12}
                          :the-cavern-of-wrath {:name "The Cavern of Wrath"
                                                :level 12
-                                               :waypoint true}
+                                               :waypoint true
+                                               :layouts ["img/layouts/act01/the-cavern-of-wrath-01.png"
+                                                         "img/layouts/act01/the-cavern-of-wrath-02.png"
+                                                         "img/layouts/act01/the-cavern-of-wrath-03.png"]}
                          :the-cavern-of-anger {:name "The Cavern of Anger"
-                                               :level 13}}
+                                               :level 13
+                                               :notes "Often bottom right, you can follow the spirits, if you see piles of gold you’re close to Merveil."
+                                               :layouts ["img/layouts/act01/the-cavern-of-anger-01.png"
+                                                         "img/layouts/act01/the-cavern-of-anger-02.png"]}}
                 :act-02 {:the-southern-forest {:name "The Southern Forest"
                                                :level 13
                                                :waypoint true}}})

@@ -258,3 +258,15 @@
   {:margin-top "16px"
    :font-size "40px !important"
    :color ((get-in palette [:white :alpha]) "0.2")})
+
+(css/defstyles layout-notes-container []
+  {:font-size "16px"
+   :max-width "400px"
+   :color ((get-in palette [:white :alpha]) "0.8")
+   :margin "8px 0"})
+
+(css/defstyles layout-image-container []
+  {:max-width "180px"})
+
+(css/defstyles layout-image []
+  {:max-width "180px"})
