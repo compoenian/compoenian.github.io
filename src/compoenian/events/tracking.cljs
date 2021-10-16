@@ -56,19 +56,17 @@
  ::navigate-section-forward
  (fn-traced [db [_]]
             (pprint "forward section")
-            (update-in db [:level :active-checkpoint] #(min (inc %) (dec (count (:level-data db)))))
-            #_(let [current (get-in db [:tracking :section])
-                    timer-val (get-in db [:timer :timer-val])
-                    splits (get-in db [:tracking :splits])
-                    plan (get-in db [:tracking :plan])
-                    updated (min (dec (count plan)) (inc current))]
-                (-> db
-                    (assoc-in [:tracking :checkpoint] 0)
-                    (assoc-in [:tracking :section] updated)
-                    (assoc-in [:tracking :splits] (conj splits timer-val))))))
+            (let [timer-val (get-in db [:timer :timer-val])
+                  splits (get-in db [:level :splits])
+                  elapsed-splits (if (empty? splits) 0 (reduce + splits))]
+              (-> db
+                  (update-in [:level :active-checkpoint] #(min (inc %) (dec (count (:level-data db)))))
+                  (update-in [:level :splits] #(into [] (conj % (- timer-val elapsed-splits))))))))
 
 (rf/reg-event-db
  ::navigate-section-back
  (fn-traced [db [_]]
             (pprint "back section")
-            (update-in db [:level :active-checkpoint] #(max (dec %) 0))))
+            (-> db
+                (update-in [:level :active-checkpoint] #(max (dec %) 0))
+                (update-in [:level :splits] #(into [] (drop-last %))))))

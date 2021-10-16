@@ -108,6 +108,7 @@
    :overflow "hidden"
    :text-overflow "ellipsis"
    :text-transform "uppercase"
+   :max-width "132px"
    :color (get {:inactive ((get-in palette [:white :alpha]) "0.6")
                 :pending ((get-in palette [:white :alpha]) "0.6")} status)})
 

@@ -24,9 +24,9 @@
                   :container true
                   :direction "column"}
      [:> mui/Grid {:item true}
-      [:> mui/Box {:class (styles/track-name-container)} "LIGHTNING TRAP"]]
+      [:> mui/Box {:class (styles/track-name-container)} "BANE"]]
      [:> mui/Grid {:item true}
-      [:> mui/Box {:class (styles/track-details-container)} "Raider [SF - 3.15]"]]]]])
+      [:> mui/Box {:class (styles/track-details-container)} "Occultist [3.16]"]]]]])
 
 (defn timer-display-container []
   (let [timer-display @(rf/subscribe [::subs.tracking/timer-display])]
@@ -69,55 +69,28 @@
         [:> Clear {:class (styles/timer-action-icon :reset)}]
         [:> mui/Box {:class (styles/timer-action-label)} "RESET"]]]]]))
 
+(defn timer-panel-display-container [{:keys [checkpoint]}]
+  (let [{:keys [name checkpoint-index status split]} checkpoint]
+    [note-panel/container {:status status
+                           :direction :left}
+     [:> mui/Grid {:container true
+                   :direction "row"}
+      [:> mui/Grid {:item true
+                    :xs true}
+       [:> mui/Box {:class (styles/panel-title status)} name]]
+      [:> mui/Grid {:item true}
+       [:> mui/Box {:class (styles/panel-timestamp status)} split]]]]))
+
 (defn timer-grid-container []
-  [:> mui/Box {:class (styles/timer-grid-container)}
-   [:> mui/Grid {:container true
-                 :direction "column"
-                 :spacing 1}
-    [:> mui/Grid {:item true}
-     [note-panel/container {:status :inactive
-                            :direction :left}
-      [:> mui/Grid {:container true
-                    :direction "row"}
-       [:> mui/Grid {:item true
-                     :xs true}
-        [:> mui/Box {:class (styles/panel-title :inactive)} "inactive panel title"]
-        [:> mui/Box {:class (styles/panel-description :inactive)} "inactive panel description"]]
-       [:> mui/Grid {:item true}
-        [:> mui/Box {:class (styles/panel-timestamp :inactive)} "00:00:00"]]]]]
-    [:> mui/Grid {:item true}
-     [note-panel/container {:status :active
-                            :direction :left}
-      [:> mui/Grid {:container true
-                    :direction "row"}
-       [:> mui/Grid {:item true
-                     :xs true}
-        [:> mui/Box {:class (styles/panel-title :active)} "active panel title"]
-        [:> mui/Box {:class (styles/panel-description :active)} "active panel description"]]
-       [:> mui/Grid {:item true}
-        [:> mui/Box {:class (styles/panel-timestamp :active)} "-"]]]]]
-    [:> mui/Grid {:item true}
-     [note-panel/container {:status :pending
-                            :direction :left}
-      [:> mui/Grid {:container true
-                    :direction "row"}
-       [:> mui/Grid {:item true
-                     :xs true}
-        [:> mui/Box {:class (styles/panel-title :pending)} "pending panel title"]
-        [:> mui/Box {:class (styles/panel-description :pending)} "pending panel description"]]
-       [:> mui/Grid {:item true}
-        [:> mui/Box {:class (styles/panel-timestamp :pending)} "-"]]]]]
-    [:> mui/Grid {:item true}
-     [note-panel/container {:status :pending
-                            :direction :left}
-      [:> mui/Grid {:container true
-                    :direction "row"}
-       [:> mui/Grid {:item true
-                     :xs true}
-        [:> mui/Box {:class (styles/panel-title :pending)} "pending panel title 2"]
-        [:> mui/Box {:class (styles/panel-description :pending)} "pending panel description 2"]]
-       [:> mui/Grid {:item true}
-        [:> mui/Box {:class (styles/panel-timestamp :pending)} "-"]]]]]]])
+  (let [{:keys [checkpoint-data active-elapsed splits]} @(rf/subscribe [::subs.tracking/checkpoint-splits])]
+    [:> mui/Box {:class (styles/timer-grid-container)}
+     [:> mui/Grid {:container true
+                   :direction "column"
+                   :spacing 1}
+      (for [datum checkpoint-data]
+        (let [{:keys [name checkpoint-index]} datum]
+          ^{:key (str name checkpoint-index)} [:> mui/Grid {:item true}
+                                               [timer-panel-display-container {:checkpoint datum}]]))]]))
 
 (defn timer-card []
   [:> mui/Box {:class (styles/timer-card-container)}
@@ -135,12 +108,13 @@
      [timer-grid-container]]]])
 
 (defn progress-card []
-  [:> mui/Box {:class (styles/progress-card-container)}
-   [:> rcp/CircularProgressbarWithChildren {:class (styles/progress-bar)
-                                            :value 82
-                                            :styles {"path" {"stroke" (get-in palette [:keppel :flat])
-                                                             "strokeLinecap" "round"}}}
-    [:> mui/Box {:class (styles/progress-bar-text)} "82%"]]])
+  (let [{:keys [percentage formatted] :as progression} @(rf/subscribe [::subs.tracking/checkpoint-progression])]
+    [:> mui/Box {:class (styles/progress-card-container)}
+     [:> rcp/CircularProgressbarWithChildren {:class (styles/progress-bar)
+                                              :value percentage
+                                              :styles {"path" {"stroke" (get-in palette [:keppel :flat])
+                                                               "strokeLinecap" "round"}}}
+      [:> mui/Box {:class (styles/progress-bar-text)} formatted]]]))
 
 (defn stats-card []
   [:> mui/Box {:class (styles/stats-panel)}

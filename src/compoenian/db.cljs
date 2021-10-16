@@ -6,4 +6,5 @@
            :timer-val 0
            :interval nil
            :status :paused}
-   :level {:active-checkpoint 0}})
+   :level {:active-checkpoint 0
+           :splits []}})

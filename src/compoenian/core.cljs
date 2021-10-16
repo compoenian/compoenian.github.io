@@ -21,7 +21,6 @@
   (re-frame/clear-subscription-cache!)
   (re-frame/dispatch [::rp/set-keydown-rules
                       {:event-keys [[[::events.tracking/navigate-section-forward][{:keyCode KeyCodes/SPACE}]]
-                                    [[::events.tracking/reset-timer][{:keyCode KeyCodes/Z}]]
                                     [[::events.tracking/navigate-section-back][{:keyCode KeyCodes/B}]]
                                     [[::events.tracking/toggle-timer][{:keyCode KeyCodes/TAB}]]]}])
   (let [root-el (.getElementById js/document "app")]

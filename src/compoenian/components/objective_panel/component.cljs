@@ -25,14 +25,22 @@
     [:> mui/Box {:class (styles/panel-title :bold)} action]]])
 
 (defn travel-display-container [{:keys [method]} target-zone]
-  [:> mui/Grid {:container true
-                :direction "row"}
-   [:> mui/Grid {:item true}
-    [:> mui/Box {:class (styles/panel-title :active)} (name method)]]
-   [:> mui/Grid {:item true}
-    [:> DoubleArrow {:class (styles/panel-icon)}]]
-   [:> mui/Grid {:item true}
-    [:> mui/Box {:class (styles/panel-title :bold)} target-zone]]])
+  (if (= :activate method)
+    [:> mui/Grid {:container true
+                  :direction "row"
+                  :spacing 2}
+     [:> mui/Grid {:item true}
+      [:> mui/Box {:class (styles/panel-title :active)} "find and activate"]]
+     [:> mui/Grid {:item true}
+      [:> mui/Box {:class (styles/panel-title :bold)} "waypoint"]]]
+    [:> mui/Grid {:container true
+                  :direction "row"}
+     [:> mui/Grid {:item true}
+      [:> mui/Box {:class (styles/panel-title :active)} (name method)]]
+     [:> mui/Grid {:item true}
+      [:> DoubleArrow {:class (styles/panel-icon)}]]
+     [:> mui/Grid {:item true}
+      [:> mui/Box {:class (styles/panel-title :bold)} target-zone]]]))
 
 (defn reward-display-container [{:keys [selection giver]}]
   [:> mui/Grid {:container true

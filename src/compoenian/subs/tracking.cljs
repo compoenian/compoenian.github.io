@@ -13,7 +13,7 @@
    (:timer db)))
 
 (defn generate-formatted-timer [elapsed]
-  (let [duration (t/new-duration elapsed :seconds)
+  (let [duration (t/new-duration (if (nil? elapsed) 0 elapsed) :seconds)
         hours (t/hours duration)
         minutes (t/minutes (t/- duration (t/new-duration hours :hours)))
         seconds (t/seconds (t/- duration (t/new-duration minutes :minutes) (t/new-duration hours :hours)))
@@ -57,3 +57,47 @@
       :forward-checkpoint-data (annotate-zone-data forward-cp-data zone-data)
       :checkpoint (inc active-checkpoint)
       :checkpoint-total (count level-data)})))
+
+(defn annotate-checkpoint-data [{:keys [level-data splits active-checkpoint active-elapsed]} index]
+  (let [checkpoint (nth level-data index)
+        status (cond
+                 (< index active-checkpoint) :inactive
+                 (= index active-checkpoint) :active
+                 (> index active-checkpoint) :pending)
+        split (case status
+                :inactive (generate-formatted-timer (get splits index))
+                :active active-elapsed
+                :pending "-")]
+    (-> checkpoint
+        (assoc :checkpoint-index index)
+        (assoc :status status)
+        (assoc :split split))))
+
+(rf/reg-sub
+ ::checkpoint-splits
+ (fn [query-v]
+   [(rf/subscribe [::level]) (rf/subscribe [::level-data]) (rf/subscribe [::timer])])
+ (fn [[level level-data timer] query-v]
+   (let [{:keys [active-checkpoint splits]} level
+         split-elapsed (if (empty? splits) 0 (reduce + splits))
+         active-elapsed (generate-formatted-timer (- (:timer-val timer) split-elapsed))
+         checkpoint-start-endbound (min (dec active-checkpoint) (- (count level-data) 5))
+         checkpoint-start (max checkpoint-start-endbound 0)
+         checkpoint-range (range checkpoint-start (+ checkpoint-start 5))
+         checkpoint-data (mapv (partial annotate-checkpoint-data {:level-data level-data
+                                                                  :splits splits
+                                                                  :active-checkpoint active-checkpoint
+                                                                  :active-elapsed active-elapsed}) checkpoint-range)]
+     {:checkpoint-data checkpoint-data})))
+
+(rf/reg-sub
+ ::checkpoint-progression
+ (fn [query-v]
+   [(rf/subscribe [::level]) (rf/subscribe [::level-data])])
+ (fn [[level level-data] query-v]
+   (let [{:keys [active-checkpoint]} level
+         percentage (Math/round (* (/ active-checkpoint (count level-data)) 100))]
+     {:active active-checkpoint
+      :total (count level-data)
+      :percentage percentage
+      :formatted (str (goog.string/format "%02d" percentage) "%")})))
