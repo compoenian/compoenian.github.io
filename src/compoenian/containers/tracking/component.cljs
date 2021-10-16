@@ -1,17 +1,19 @@
 (ns compoenian.containers.tracking.component
   (:require
    [cljs.pprint :refer [pprint]]
-   [reagent.core :as ra]
-   [re-frame.core :as rf]
-   [compoenian.containers.tracking.styles :as styles]
    [compoenian.components.note-panel.component :as note-panel]
    [compoenian.components.objective-panel.component :as objective-panel]
+   [compoenian.containers.tracking.styles :as styles]
    [compoenian.data.styles :refer [palette]]
    [compoenian.events.tracking :as events.tracking]
    [compoenian.subs.tracking :as subs.tracking]
+   [goog.string]
+   [goog.string.format]
    ["@material-ui/core" :as mui]
    ["@material-ui/icons" :refer [Mood FastRewind PlayArrow FastForward Pause Clear Eject Folder LocalAtm DirectionsRun Help Redeem DoubleArrow]]
-   ["react-circular-progressbar" :as rcp]))
+   [re-frame.core :as rf]
+   ["react-circular-progressbar" :as rcp]
+   [reagent.core :as ra]))
 
 (defn track-details-container []
   [:> mui/Grid {:container true
@@ -70,14 +72,14 @@
         [:> mui/Box {:class (styles/timer-action-label)} "RESET"]]]]]))
 
 (defn timer-panel-display-container [{:keys [checkpoint]}]
-  (let [{:keys [name checkpoint-index status split]} checkpoint]
+  (let [{:keys [label checkpoint-index status split]} checkpoint]
     [note-panel/container {:status status
                            :direction :left}
      [:> mui/Grid {:container true
                    :direction "row"}
       [:> mui/Grid {:item true
                     :xs true}
-       [:> mui/Box {:class (styles/panel-title status)} name]]
+       [:> mui/Box {:class (styles/panel-title status)} label]]
       [:> mui/Grid {:item true}
        [:> mui/Box {:class (styles/panel-timestamp status)} split]]]]))
 
@@ -211,15 +213,25 @@
                        :style {:width "100%"}}
           [:> mui/Grid {:item true}
            [:> mui/Box {:class (styles/current-zone-container)}
-            [:> mui/Box {:class (styles/stat-label)} "CURRENT ZONE"]
-            [:> mui/Box {:class (styles/stat-value)} (get-in checkpoint-data [:zone :name])]]]
+            [:> mui/Box {:class (styles/stat-label)} "CURRENT"]
+            [:> mui/Grid {:container true
+                          :direction "row"}
+             [:> mui/Grid {:item true}
+              [:> mui/Box {:class (styles/stat-value)} (get-in checkpoint-data [:zone :name])]]
+             [:> mui/Grid {:item true}
+              [:> mui/Box {:class (styles/stat-value-append)} (goog.string/format "%02d" (get-in checkpoint-data [:zone :level]))]]]]]
           [:> mui/Grid {:item true}
            [:> mui/Box {}
             [:> DoubleArrow {:class (styles/zone-progress-icon)}]]]
           [:> mui/Grid {:item true}
            [:> mui/Box {:class (styles/current-zone-container)}
-            [:> mui/Box {:class (styles/stat-label)} "NEXT ZONE"]
-            [:> mui/Box {:class (styles/stat-value)} target-zone]]]]]
+            [:> mui/Box {:class (styles/stat-label)} "NEXT"]
+            [:> mui/Grid {:container true
+                          :direction "row"}
+             [:> mui/Grid {:item true}
+              [:> mui/Box {:class (styles/stat-value)} target-zone]]
+             [:> mui/Grid {:item true}
+              [:> mui/Box {:class (styles/stat-value-append)} (goog.string/format "%02d" (get-in forward-checkpoint-data [:zone :level]))]]]]]]]
         [:> mui/Grid {:item true}
          [objective-display-container {:objectives (:objectives checkpoint-data)
                                        :target-zone target-zone}]]]]
@@ -231,10 +243,6 @@
         [:> mui/Grid {:container true
                       :direction "column"
                       :style {:height "100%"}}
-         [:> mui/Grid {:item true}
-          [:> mui/Box {:class (styles/zone-layouts-container)}
-           [:> mui/Box {:class (styles/stat-label)} "LAYOUTS"]
-           [:> mui/Box {:class (styles/inactive-text)} "-"]]]
          [:> mui/Grid {:item true}
           [:> mui/Box {:class (styles/zone-notes-container)}
            [:> mui/Box {:class (styles/stat-label)} "NOTES"]

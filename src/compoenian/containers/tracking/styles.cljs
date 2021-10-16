@@ -198,6 +198,12 @@
   {:font-size "32px"
    :font-weight "bold"})
 
+(css/defstyles stat-value-append []
+  {:font-size "32px"
+   :font-weight "bold"
+   :padding "0 16px"
+   :color ((get-in palette [:white :alpha]) "0.4")})
+
 (css/defstyles inactive-text []
   {:font-size "12px"
    :color ((get-in palette [:white :alpha]) "0.6")})

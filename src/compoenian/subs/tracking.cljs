@@ -58,8 +58,9 @@
       :checkpoint (inc active-checkpoint)
       :checkpoint-total (count level-data)})))
 
-(defn annotate-checkpoint-data [{:keys [level-data splits active-checkpoint active-elapsed]} index]
-  (let [checkpoint (nth level-data index)
+(defn annotate-checkpoint-data [{:keys [level-data zone-data splits active-checkpoint active-elapsed]} index]
+  (let [{:keys [label act-id zone] :as checkpoint} (nth level-data index)
+        label-update (if (nil? label) (get-in zone-data [act-id zone :name]) label)
         status (cond
                  (< index active-checkpoint) :inactive
                  (= index active-checkpoint) :active
@@ -69,6 +70,7 @@
                 :active active-elapsed
                 :pending "-")]
     (-> checkpoint
+        (assoc :label label-update)
         (assoc :checkpoint-index index)
         (assoc :status status)
         (assoc :split split))))
@@ -76,8 +78,8 @@
 (rf/reg-sub
  ::checkpoint-splits
  (fn [query-v]
-   [(rf/subscribe [::level]) (rf/subscribe [::level-data]) (rf/subscribe [::timer])])
- (fn [[level level-data timer] query-v]
+   [(rf/subscribe [::level]) (rf/subscribe [::level-data]) (rf/subscribe [::zone-data]) (rf/subscribe [::timer])])
+ (fn [[level level-data zone-data timer] query-v]
    (let [{:keys [active-checkpoint splits]} level
          split-elapsed (if (empty? splits) 0 (reduce + splits))
          active-elapsed (generate-formatted-timer (- (:timer-val timer) split-elapsed))
@@ -85,6 +87,7 @@
          checkpoint-start (max checkpoint-start-endbound 0)
          checkpoint-range (range checkpoint-start (+ checkpoint-start 5))
          checkpoint-data (mapv (partial annotate-checkpoint-data {:level-data level-data
+                                                                  :zone-data zone-data
                                                                   :splits splits
                                                                   :active-checkpoint active-checkpoint
                                                                   :active-elapsed active-elapsed}) checkpoint-range)]
