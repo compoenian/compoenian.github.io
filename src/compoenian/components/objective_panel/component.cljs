@@ -52,7 +52,7 @@
     [:> mui/Box {:class (styles/panel-title :bold)} selection]]])
 
 (defn quest-display-container [{:keys [objective target] :as quest}]
-  [:> mui/Grid {:cotainer true
+  [:> mui/Grid {:container true
                 :direction "column"}
    [:> mui/Grid {:item true}
     [:> mui/Grid {:container true

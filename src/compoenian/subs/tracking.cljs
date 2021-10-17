@@ -104,3 +104,24 @@
       :total (count level-data)
       :percentage percentage
       :formatted (str (goog.string/format "%02d" percentage) "%")})))
+
+(rf/reg-sub
+ ::gear-data
+ (fn [db]
+   (:gear-data db)))
+
+(rf/reg-sub
+ ::current-gear
+ (fn [query-v]
+   [(rf/subscribe [::active-zone]) (rf/subscribe [::gear-data])])
+ (fn [[{:keys [checkpoint-data]} {:keys [build levels]}] query-v]
+   (let [zone-level (get-in checkpoint-data [:zone :level])
+         gear-level (if (or (nil? zone-level) (< zone-level 3)) 1 (- zone-level 2))
+         current-set-index (->> levels
+                                (split-with (partial >= gear-level))
+                                first
+                                count)
+         current-set (nth build (dec current-set-index))
+         future-set (if (<= (count build) current-set-index) nil (nth build current-set-index))]
+     {:current current-set
+      :future future-set})))

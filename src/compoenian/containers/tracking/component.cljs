@@ -121,7 +121,6 @@
 (defn layout-card []
   (let [{:keys [checkpoint-data]} @(rf/subscribe [::subs.tracking/active-zone])
         {:keys [notes layouts]} (:zone checkpoint-data)]
-    (pprint layouts)
     [:> mui/Box {:class (styles/stats-panel)}
      [:> mui/Grid {:container true
                    :direction "column"
@@ -135,7 +134,7 @@
       [:> mui/Grid {:item true}
        [:> mui/Box {:class (styles/layout-grid-container)}
         [:> mui/Grid {:container true
-                      :columnSpacing 0}
+                      :columnspacing 0}
          (for [layout layouts]
            ^{:key layout} [:> mui/Grid {:item true
                                         :xs 6}
@@ -249,19 +248,46 @@
                                                                 "-")]]]]]]]
         [:> mui/Grid {:item true}
          [objective-display-container {:objectives (:objectives checkpoint-data)
-                                       :target-zone target-zone}]]]]
-      #_[:> mui/Grid {:item true
-                      :style {:height "100%"}}
-         [:> mui/Box {:class (styles/card-spacer)} ""]]
-      #_[:> mui/Grid {:item true}
-         [:> mui/Box {:class (styles/zone-reference-container)}
-          [:> mui/Grid {:container true
-                        :direction "column"
-                        :style {:height "100%"}}
+                                       :target-zone target-zone}]]]]]]))
+
+(defn skill-display-container [{:keys [active support]}]
+  (let []
+    [:> mui/Box {:class (styles/skill-display-container)} (:name active)]))
+
+(defn gear-card []
+  (let [{:keys [current future]} @(rf/subscribe [::subs.tracking/current-gear])]
+    (pprint {:c current
+             :f future})
+    [:> mui/Box {:class (styles/gear-panel)}
+     [:> mui/Grid {:container true
+                   :direction "column"}
+      [:> mui/Grid {:item true}
+       [:> mui/Box {:class (styles/card-title)} "GEAR"]]
+      [:> mui/Grid {:item true
+                    :xs true}
+       [:> mui/Box {}
+        [:> mui/Grid {:container true
+                      :direction "row"
+                      :spacing 0}
+         [:> mui/Grid {:item true
+                       :xs 6}
+          (let [{:keys [label skills]} current]
+            [:> mui/Grid {:container true
+                          :direction "column"
+                          :spacing 1}
+             [:> mui/Grid {:item true}
+              [:> mui/Box {:class (styles/stat-label)} (str "current - " label)]]
+             [:> mui/Grid {:item true}
+              [:> mui/Box {}
+               [:> mui/Grid {:container true
+                             :direction "row"}
+                (for [skill (:skills current)]
+                  ^{:key (get-in skill [:active :reference])} [:> mui/Grid {:item true
+                                                                            :xs 3}
+                                                               [skill-display-container skill]])]]]])]
+         (if (some? future)
            [:> mui/Grid {:item true}
-            [:> mui/Box {:class (styles/zone-notes-container)}
-             [:> mui/Box {:class (styles/stat-label)} "NOTES"]
-             [:> mui/Box {:class (styles/inactive-text)} "-"]]]]]]]]))
+            [:> mui/Box {:class (styles/stat-label)} "future"]])]]]]]))
 
 (defn container []
   [:> mui/Box {:class (styles/container-main)}
@@ -293,8 +319,7 @@
                             :margin-bottom "40px"}}
        [zone-card]]
       [:> mui/Grid {:item true}
-       [:> mui/Box {:class (styles/gear-panel)}
-        [:> mui/Box {:class (styles/card-title)} "GEAR"]]]]]
+       [gear-card]]]]
     [:> mui/Grid {:item true}
      [:> mui/Grid {:container true
                    :direction "column"

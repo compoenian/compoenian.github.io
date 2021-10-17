@@ -273,3 +273,6 @@
 
 (css/defstyles layout-image []
   {:max-width "180px"})
+
+(css/defstyles skill-display-container []
+  {:border "1px solid red"})
