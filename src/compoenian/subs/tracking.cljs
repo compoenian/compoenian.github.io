@@ -114,8 +114,10 @@
  ::current-gear
  (fn [query-v]
    [(rf/subscribe [::active-zone]) (rf/subscribe [::gear-data])])
- (fn [[{:keys [checkpoint-data]} {:keys [build levels]}] query-v]
-   (let [zone-level (get-in checkpoint-data [:zone :level])
+ (fn [[{:keys [checkpoint-data forward-checkpoint-data]} {:keys [build levels]}] query-v]
+   (let [zone-level (if-let [current-level (get-in checkpoint-data [:zone :level])]
+                      current-level
+                      (get-in forward-checkpoint-data [:zone :level]))
          gear-level (if (or (nil? zone-level) (< zone-level 3)) 1 (- zone-level 2))
          current-set-index (->> levels
                                 (split-with (partial >= gear-level))

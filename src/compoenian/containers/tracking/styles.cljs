@@ -275,4 +275,23 @@
   {:max-width "180px"})
 
 (css/defstyles skill-display-container []
-  {:border "1px solid red"})
+  {})
+
+(css/defstyles socket-icon-container [colour]
+  {:width "12px"
+   :height "12px"
+   :margin-bottom "6px"
+   :border-radius "50%"
+   :background-color (get {:B (get-in palette [:blue-green :flat])
+                           :G (get-in palette [:keppel :flat])
+                           :R (get-in palette [:flame :flat])} colour)})
+
+(css/defstyles skill-gem-label [type]
+  {:font-size "12px"
+   :white-space "nowrap"
+   :overflow "hidden"
+   :text-overflow "ellipsis"
+   :padding-left (get {:active "0"
+                       :support "4px"} type)
+   :color (get {:active ((get-in palette [:white :alpha]) "0.9")
+                :support ((get-in palette [:white :alpha]) "0.7")} type)})

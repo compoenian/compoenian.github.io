@@ -95,22 +95,24 @@
                           :zone :the-twilight-strand
                           :objectives [[:action {:action "Create Witch"}]
                                        [:quest {:objective :collect
-                                                :target "[Arcane Surge???] Support gem"}]
+                                                :target "Arcane Surge Support gem"}]
                                        [:quest {:objective :defeat
                                                 :target "Hillock"}]
                                        [:travel {:method :zone}]]}
-                         {:label "Caustic Arrow"
+                         {:label "Blight"
                           :zone :lioneyes-watch
-                          :objectives [[:reward {:selection "Explosive Trap"
+                          :objectives [[:inventory {:action "Move RGB Wand to weapon swap slot"}]
+                                       [:reward {:selection "Blight"
                                                  :giver "Tarkleigh"}]
-                                       [:inventory {:action "Move RGB Dagger to weapon swap slot"}]
-                                       [:vendor {:action "Check for GGG gear, sell all non-green socketed gear"
+                                       [:vendor {:action "Check for BBG/BBB/BBR gear, sell all non-blue socketed gear"
                                                  :vendor "Tarkleigh"}]
-                                       [:inventory {:action "Equip stashed bow and relevant gear"}]
-                                       [:inventory {:action "Equip Caustic Arrow and Pierce"}]
-                                       [:inventory {:action "Equip Explosive Trap"}]
-                                       [:vendor {:action "Purchase Iron Ring"
+                                       [:vendor {:action "Purchase Explosive Trap - 1 Wisdom Scroll"
                                                  :vendor "Nessa"}]
+                                       [:vendor {:action "Purchase Raise Zombie - 1 Wisdom Scroll"
+                                                 :vendor "Nessa"}]
+                                       [:vendor {:action "Purchase Iron Ring - 2 Wisdom Scroll"
+                                                 :vendor "Nessa"}]
+                                       [:inventory {:action "Equip Explosive Trap and Raise Zombie"}]
                                        [:travel {:method :zone}]]}
                          {:zone :the-coast
                           :objectives [[:travel {:method :activate}]
@@ -143,15 +145,12 @@
                                                  :giver "Tarkleigh"}]
                                        [:reward {:selection "Quicksilver Flask"
                                                  :giver "Nessa"}]
-                                       [:reward {:selection "Onslaught Support"
+                                       [:reward {:selection "Infused Channelling Support"
                                                  :giver "Nessa"}]
-                                       [:vendor {:action "Purchase Puncture"
-                                                 :vendor "Nessa"}]
                                        [:vendor {:action "Upgrade flasks if available and vendor unnecessary items"
                                                  :vendor "Nessa"}]
                                        [:inventory {:action "Equip new links as necessary"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Submerged Passage"}]]}
+                                       [:travel {:method :waypoint}]]}
                          {:zone :the-submerged-passage
                           :objectives [[:inventory {:action "Place portal at the bridge for later entry to the flooded depths."}]
                                        [:travel {:method :zone}]]}
@@ -194,14 +193,16 @@
                           :zone :the-upper-prison
                           :objectives [[:quest {:objective :defeat
                                                 :target "Brutus"
-                                                :notes "Puncture then caustic, followed by repeat Punctures for bleed"}]
+                                                :notes "Kite with Explosive Trap and dot up with Contagion"}]
                                        [:action {:action "Exit to character selection and re-log"}]]}
                          {:zone :lioneyes-watch
-                          :objectives [[:vendor {:action "Purchase Mirage Archer Support"
+                          :objectives [[:vendor {:action "Purchase Void Manipulation Support"
                                                  :vendor "Nessa"}]
-                                       [:vendor {:action "Purchase Flame Dash"
+                                       [:vendor {:action "Purchase Vitality"
                                                  :vendor "Nessa"}]
-                                       [:reward {:selection "Smoke Mine"
+                                       [:vendor {:action "Purchase Clarity"
+                                                 :vendor "Nessa"}]
+                                       [:reward {:selection "Flame Dash"
                                                  :giver "Tarkleigh"}]
                                        [:inventory {:action "Equip new skill gems and setup skill hotkeys"}]
                                        [:travel {:method :waypoint}]]}
@@ -224,7 +225,7 @@
                          {:zone :the-cavern-of-wrath
                           :objectives [[:travel {:method :activate}]
                                        [:travel {:method :zone}]]}
-                         {:label "Toxic Rain"
+                         {:label "Essence Drain"
                           :zone :lioneyes-watch
                           :objectives [[:reward {:selection "Skill Point book"
                                                  :giver "Bestel"}]
@@ -237,8 +238,7 @@
                                        [:travel {:method :waypoint}]]}
                          {:zone :the-cavern-of-wrath
                           :objectives [[:travel {:method :zone}]
-                                       [:travel {:method :zone
-                                                 :location "The Southern Forest"}]]}
+                                       [:travel {:method :zone}]]}
                          {:label "Defeat Merveil"
                           :zone :the-cavern-of-anger
                           :objectives [[:quest {:objective :defeat
@@ -449,7 +449,7 @@
                          {:label "Enter The Battlefront"
                           :objectives [[:reward {:selection "Skill Point book"
                                                  :giver "Hargan"}]
-                                       [:vendor {:action "Check for on-colour 4-link items"
+                                       [:vendor {:action "Check for on-color 4-link items"
                                                  :vendor "Hargan"}]
                                        [:travel {:method :waypoint
                                                  :location "The Marketplace"}]
@@ -516,7 +516,7 @@
                           :objectives [[:inventory {:action "Vendor rares and clear personal inventory as needed"}]
                                        [:reward {:selection "Soulrend"
                                                  :giver "Maramoa"}]
-                                       [:vendor {:action "Check for on-colour 4-link items"
+                                       [:vendor {:action "Check for on-color 4-link items"
                                                  :vendor "Hargan"}]
                                        [:inventory {:action "Switch to weapon swap wands"}]
                                        [:vendor {:action "Purchase 3x Spellslinger, 1x Bane gems"
