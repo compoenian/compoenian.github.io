@@ -386,7 +386,335 @@
                                                  :waypoint true
                                                  :notes "Before accessing this, and killing Kitava, consider running your first labyrinth before the resistance penalty."}})
 
+(def act-06-definitions {:lioneyes-watch {:name "Lioneye's Watch"
+                                          :level nil
+                                          :waypoint true}
+                         :the-twilight-strand {:name "The Twilight Strand"
+                                               :level 45
+                                               :notes "This area and doing the quest is optional, this opens a level 1 gem vendor."}
+                         :the-coast {:name "The Coast"
+                                     :level 45
+                                     :waypoint true
+                                     :notes "Go to the right side of the zone, and go to the top right corner of the zone. You might need to go up or down a bit."
+                                     :layouts ["img/layouts/act06/the-coast-01.png"
+                                               "img/layouts/act06/the-coast-02.png"
+                                               "img/layouts/act06/the-coast-03.png"
+                                               "img/layouts/act06/the-coast-04.png"]}
+                         :the-tidal-island {:name "The Tidal Island"
+                                            :level 45}
+                         :the-mud-flats {:name "The Mud Flats"
+                                         :level 46
+                                         :notes "Kill the Dishonoured Queen (1) on the right side to get the key to open the gate to the next zone (2) on the left side."
+                                         :layouts ["img/layouts/act06/the-mud-flats-01.png"
+                                                   "img/layouts/act06/the-mud-flats-02.png"]}
+                         :the-karui-fortress {:name "The Karui Fortress"
+                                              :level 46
+                                              :layouts ["img/layouts/act06/the-karui-fortress-01.png"]}
+                         :the-ridge {:name "The Ridge"
+                                     :level 46
+                                     :waypoint true
+                                     :notes "Follow the path until you can go right, then follow that path until you have a long path up left."
+                                     :layouts ["img/layouts/act06/the-ridge-01.png"
+                                               "img/layouts/act06/the-ridge-02.png"]}
+                         :the-lower-prison {:name "The Lower Prison"
+                                            :level 47
+                                            :waypoint true
+                                            :notes "You usually want to go down or left towards the exit, there is a trial here, but it is fairly close to the waypoint if you want to do it later."
+                                            :layouts ["img/layouts/act06/the-lower-prison-01.png"
+                                                      "img/layouts/act06/the-lower-prison-02.png"
+                                                      "img/layouts/act06/the-lower-prison-03.png"
+                                                      "img/layouts/act06/the-lower-prison-04.png"]}
+                         :shavronnes-tower {:name "Shavronne's Tower"
+                                            :level 47}
+                         :prisoners-gate {:name "Prisoner's Gate"
+                                          :level 47
+                                          :waypoint true
+                                          :notes "If you want to fight the Aberrath, go down the side of the road that has the cliff, otherwise follow the road into the next area."
+                                          :layouts ["img/layouts/act06/prisoners-gate-01.png"
+                                                    "img/layouts/act06/prisoners-gate-02.png"
+                                                    "img/layouts/act06/prisoners-gate-03.png"]}
+                         :the-western-forest {:name "The Western Forest"
+                                              :level 48
+                                              :waypoint true
+                                              :notes "There is a waypoint in this zone, this is optional but might be useful."}
+                         :the-riverways {:name "The Riverways"
+                                         :level 48
+                                         :waypoint true
+                                         :notes "Follow the road and when you reach the encampment, go down and right. If you want to kill Ryslatha, follow the path up at the waypoint."
+                                         :layouts ["img/layouts/act06/the-riverways-01.png"]}
+                         :the-wetlands {:name "The Wetlands"
+                                        :level 48
+                                        :notes "Stick to the left hand side and find the entrance to the Spawning Ground."}
+                         :the-southern-forest {:name "The Southern Forest"
+                                               :level 49
+                                               :waypoint true
+                                               :notes "Follow the right hand wall until you find The Cavern of Anger."}
+                         :the-cavern-of-anger {:name "The Cavern of Anger"
+                                               :level 49
+                                               :notes "Don’t forget the black flag upon entering this zone. Head down then up first, then go right, the exit can be up or down."
+                                               :layouts ["img/layouts/act06/the-cavern-of-anger-01.png"
+                                                         "img/layouts/act06/the-cavern-of-anger-01.png"]}
+                         :the-beacon {:name "The Beacon"
+                                      :level 49
+                                      :waypoint true
+                                      :notes "Follow the shoreline until you reach the beacons."}
+                         :the-brine-kings-reef {:name "The Brine King's Reef"
+                                                :level 50
+                                                :waypoint true
+                                                :notes "Follow the left hand shoreline to the boss arena."
+                                                :layouts ["img/layouts/act06/the-brine-kings-reef-01.png"
+                                                          "img/layouts/act06/the-brine-kings-reef-01.png"]}})
+
+(def act-07-definitions {:the-bridge-encampment {:name "The Bridge Encampment"
+                                                 :level nil
+                                                 :waypoint true}
+                         :the-broken-bridge {:name "The Broken Bridge"
+                                             :level 50
+                                             :notes "Follow the road to the left to the exit."}
+                         :the-crossroads {:name "The Crossroads"
+                                          :level 51
+                                          :waypoint true
+                                          :layouts ["img/layouts/act07/the-crossroads-01.png"]}
+                         :the-fellshrine-ruins {:name "The Fellshrine Ruins"
+                                                :level 51
+                                                :notes "Follow the road, down right until then end, then go up right."}
+                         :the-crypt {:name "The Crypt"
+                                     :level 51
+                                     :trial true
+                                     :waypoint true
+                                     :notes "There is a trial in this zone. Open the sarcophagus for the exit. The layouts for 1 and 2 are connected, use the same map seed."
+                                     :layouts ["img/layouts/act07/the-crypt-1-01.png"
+                                               "img/layouts/act07/the-crypt-2-01.png"
+                                               "img/layouts/act07/the-crypt-1-02.png"
+                                               "img/layouts/act07/the-crypt-2-02.png"
+                                               "img/layouts/act07/the-crypt-1-03.png"
+                                               "img/layouts/act07/the-crypt-2-03.png"]}
+                         :the-chamber-of-sins-level-1 {:name "The Chamber of Sins Level 1"
+                                                       :level 52
+                                                       :waypoint true
+                                                       :notes "This is works just like in act two, loop around to the center."
+                                                       :layouts ["img/layouts/act07/the-chamber-of-sins-1-01.png"
+                                                                 "img/layouts/act07/the-chamber-of-sins-1-02.png"
+                                                                 "img/layouts/act07/the-chamber-of-sins-1-03.png"]}
+                         :maligaros-sanctum {:name "Maligaro's Sanctum"
+                                             :level 52
+                                             :notes "Follow the edges of the zone, and cross the bridges you encounter until you find the arena."}
+                         :the-chamber-of-sins-level-2 {:name "The Chamber of Sins Level 2"
+                                                       :level 52
+                                                       :trial true
+                                                       :notes "There is a trial in this zone on the left side. Go to the top right side, until you find the narrow long hallway, move to the end where you fought Fidelitas in act two, then go right up and right down afterwards. Click the wall to reveal the exit."
+                                                       :layouts ["img/layouts/act07/the-chamber-of-sins-2-01.png"]}
+                         :the-den {:name "The Den"
+                                   :level 53
+                                   :waypoint true
+                                   :notes "Fairly simple, you will usually want to go to the top left or right to find the exit to The Ashen Fields."
+                                   :layouts ["img/layouts/act07/the-den-01.png"
+                                             "img/layouts/act07/the-den-02.png"
+                                             "img/layouts/act07/the-den-03.png"
+                                             "img/layouts/act07/the-den-04.png"]}
+                         :the-ashen-fields {:name "The Ashen Fields"
+                                            :level 53
+                                            :waypoint true
+                                            :notes "Follow the road to the left."}
+                         :the-northern-forest {:name "The Northern Forest"
+                                               :level 53
+                                               :waypoint true
+                                               :notes "Wall-follow the left side for The Dread Thicket, wall-follow the right side for The Causeway."}
+                         :the-dread-thicket {:name "The Dread Thicket"
+                                             :level 53}
+                         :the-causeway {:name "The Causeway"
+                                        :level 54
+                                        :waypoint true
+                                        :notes "Go top right to the exit, loot Kishara’s star near the exit."}
+                         :the-vaal-city {:name "The Vaal City"
+                                         :level 54
+                                         :waypoint true
+                                         :notes "Find and follow the thick walls to guide you to the exit."
+                                         :layouts ["img/layouts/act07/the-vaal-city-01.png"]}
+                         :the-temple-of-decay-level-1 {:name "The Temple of Decay Level 1"
+                                                       :level 54
+                                                       :notes "Just like the pyramid in act two, go diagonally to exits."}
+                         :the-temple-of-decay-level-2 {:name "The Temple of Decay Level 2"
+                                                       :level 55
+                                                       :notes "Just like the pyramid in act two, go diagonally to exits."}})
+
+(def act-08-definitions {:the-sarn-encampment {:name "The Sarn Encampment"
+                                               :level nil
+                                               :waypoint true}
+                         :the-sarn-ramparts {:name "The Sarn Ramparts"
+                                             :level 55
+                                             :waypoint true
+                                             :notes "Left hand wall-follow to the stairs, go up the stairs and follow the wall to the end."}
+                         :the-toxic-conduits {:name "The Toxic Conduits"
+                                              :level 56
+                                              :notes "Watch the black paint on the floor as you enter the zone to see in which direction it points you."
+                                              :layouts ["img/layouts/act08/the-toxic-conduits-01.png"
+                                                        "img/layouts/act08/the-toxic-conduits-02.png"
+                                                        "img/layouts/act08/the-toxic-conduits-03.png"
+                                                        "img/layouts/act08/the-toxic-conduits-04.png"]}
+                         :doedres-cesspool {:name "Doedre's Cesspool"
+                                            :level 56
+                                            :waypoint true
+                                            :notes "Try to find the path that doesn’t have a dead end, this should lead you all the way to the exit."
+                                            :layouts ["img/layouts/act08/doedres-cesspool-01.png"
+                                                      "img/layouts/act08/doedres-cesspool-02.png"]}
+                         :the-grand-promenade {:name "The Grand Promenade"
+                                               :level 56
+                                               :notes "Wall-follow the right hand side."}
+                         :the-bath-house {:name "The Bath House"
+                                          :level 57
+                                          :trial true
+                                          :waypoint true
+                                          :notes "The exit is always on the right side."
+                                          :layouts ["img/layouts/act08/the-bath-house-01.png"
+                                                    "img/layouts/act08/the-bath-house-02.png"]}
+                         :the-lunaris-concourse {:name "The Lunaris Concourse"
+                                                 :level 58
+                                                 :waypoint true
+                                                 :notes "Go up and right for the waypoint, then up and left for the entrance."
+                                                 :layouts ["img/layouts/act08/the-lunaris-concourse-01.png"
+                                                           "img/layouts/act08/the-lunaris-concourse-02.png"]}
+                         :the-lunaris-temple-level-1 {:name "The Lunaris Temple Level 1"
+                                                      :level 59
+                                                      :waypoint true
+                                                      :notes "Follow the carpets until the end, activate the waypoint."
+                                                      :layouts ["img/layouts/act08/the-lunaris-temple-1-01.png"
+                                                                "img/layouts/act08/the-lunaris-temple-1-02.png"
+                                                                "img/layouts/act08/the-lunaris-temple-1-03.png"]}
+                         :the-lunaris-temple-level-2 {:name "The Lunaris Temple Level 2"
+                                                      :level 59
+                                                      :notes "Just like in act three, look for staircases and go up these, when you reach the larger area again, look for the vases on the opposite wall and pick the side where there is only one"
+                                                      :layouts ["img/layouts/act08/the-lunaris-temple-2-01.png"
+                                                                "img/layouts/act08/the-lunaris-temple-2-02.png"
+                                                                "img/layouts/act08/the-lunaris-temple-2-03.png"]}
+                         :the-quay {:name "The Quay"
+                                    :level 57
+                                    :notes "Pick up the quest item at (1), to use in the arena (2), then leave the arena and find the exit at (3)."
+                                    :layouts ["img/layouts/act08/the-quay-01.png"
+                                              "img/layouts/act08/the-quay-02.png"]}
+                         :the-grain-gate {:name "The Grain Gate"
+                                          :level 57
+                                          :waypoint true
+                                          :notes "This zone has many buildings, only enter and leave buildings through openings that have a guard’s corpse next to it, they lead the way."
+                                          :layouts ["img/layouts/act08/the-grain-gate-01.png"
+                                                    "img/layouts/act08/the-grain-gate-02.png"]}
+                         :the-imperial-fields {:name "The Imperial Fields"
+                                               :level 58
+                                               :waypoint true
+                                               :notes "Follow the road until the end, then keep on going that direction."}
+                         :the-solaris-temple-level-1 {:name "The Solaris Temple Level 1"
+                                                      :level 59
+                                                      :waypoint true
+                                                      :notes "Go down and left, then up and left, there is a waypoint on the path."
+                                                      :layouts ["img/layouts/act08/the-solaris-temple-1-01.png"
+                                                                "img/layouts/act08/the-solaris-temple-1-02.png"]}
+                         :the-solaris-temple-level-2 {:name "The Solaris Temple Level 2"
+                                                      :level 59
+                                                      :notes "Follow the carpets."
+                                                      :layouts ["img/layouts/act08/the-solaris-temple-2-01.png"
+                                                                "img/layouts/act08/the-solaris-temple-2-02.png"]}
+                         :the-harbour-bridge {:name "The Harbour Bridge"
+                                              :level 60
+                                              :notes "Go top right to find the arena with Solaris and Lunaris."}})
+
+(def act-09-definitions {:the-blood-aqueduct {:name "The Blood Aqueduct"
+                                              :level 61
+                                              :waypoint true
+                                              :notes "Go to the top left, cross the bridges on dead ends."}
+                         :highgate {:name "Highgate"
+                                    :level nil
+                                    :waypoint true}
+                         :the-descent {:name "The Descent"
+                                       :level 61
+                                       :notes "Go up right to the supply hoist, then down left to another hoist, then up right to The Vastiri Desert."
+                                       :layouts ["img/layouts/act09/the-descent-01.png"]}
+                         :the-vastiri-desert {:name "The Vastiri Desert"
+                                              :level 61
+                                              :waypoint true
+                                              :notes "Go right to the waypoint, then top left (1) for the Foothills. If you want to kill Shakari, go right to (2) for the Oasis, then get the quest item in town and enter the zone."
+                                              :layouts ["img/layouts/act09/the-vastiri-desert-01.png"]}
+                         :the-oasis {:name "The Oasis"
+                                     :level 61
+                                     :notes "Left or right hand wall follow, depending on bottom or top being the dead end at the entrance."
+                                     :layouts ["img/layouts/act09/the-oasis-01.png"
+                                               "img/layouts/act09/the-oasis-02.png"]}
+                         :the-foothills {:name "The Foothills"
+                                         :level 62
+                                         :waypoint true
+                                         :notes "Head up to find the waypoint, go to (1) to get the quest item in The Boiling Lake, then to (2) for The Tunnel to continue the story."
+                                         :layouts ["img/layouts/act09/the-foothills-01.png"]}
+                         :the-boiling-lake {:name "The Boiling Lake"
+                                            :level 62
+                                            :notes "Go to the top right zone for the quest boss, if you spot petrified men, you are close."}
+                         :the-tunnel {:name "The Tunnel"
+                                      :level 62
+                                      :trial true
+                                      :waypoint true
+                                      :notes "There is a trial in this zone. Go up left, if you come across the waypoint you’re on the right path."
+                                      :layouts ["img/layouts/act09/the-tunnel-01.png"
+                                                "img/layouts/act09/the-tunnel-02.png"
+                                                "img/layouts/act09/the-tunnel-03.png"]}
+                         :the-quarry {:name "The Quarry"
+                                      :level 63
+                                      :waypoint true
+                                      :notes "Activate the waypoint at the center, go to Shrine of the Winds first (2), then the refinery (1)."
+                                      :layouts ["img/layouts/act09/the-quarry-01.png"]}
+                         :the-refinery {:name "The Refinery"
+                                        :level 63
+                                        :notes "Follow the cart tracks to the building top right for the quest boss."
+                                        :layouts ["img/layouts/act09/the-refinery-01.png"]}
+                         :the-belly-of-the-beast {:name "The Belly of the Beast"
+                                                  :level 63
+                                                  :notes "Try to reach the top left part of the zone in The Belly of The Beast, this leads to The Rotting core."
+                                                  :layouts ["img/layouts/act09/the-belly-of-the-beast-01.png"
+                                                            "img/layouts/act09/the-belly-of-the-beast-02.png"
+                                                            "img/layouts/act09/the-belly-of-the-beast-03.png"]}})
+
+(def act-10-definitions {:the-cathedral-rooftop {:name "The Cathedral Rooftop"
+                                                 :level 64
+                                                 :notes "Go up to save Bannon, back to town, then go to down right."}
+                         :oriath-docks {:name "Oriath Docks"
+                                        :level nil
+                                        :waypoint true}
+                         :the-ravaged-square {:name "The Ravaged Square"
+                                              :level 64
+                                              :waypoint true
+                                              :notes "Left hand wall-follow, skip the first opening, take the second and cross the bridge (red part), left hand wall-follow to the waypoint. Then go to the Ossuary (1), after that the Torched Courts (2). Optional are the Reliquary (3, quest for rare belt) and the Control Blocks (4), quest with boss for a passive point. Finish by going through The Canals (5). Do your cruel labyrinth before going to the Canals as killing Kitava will lower your resistances. "
+                                              :layouts ["img/layouts/act10/the-ravaged-square-01.png"]}
+                         :the-ossuary {:name "The Ossuary"
+                                       :level 67
+                                       :notes "There is a trial here. Left hand wall follow to find the quest item and trial."}
+                         :the-torched-courts {:name "The Torched Courts"
+                                              :level 65
+                                              :notes "Follow the left-hand wall."
+                                              :layouts ["img/layouts/act10/the-torched-courts-01.png"]}
+                         :the-desecrated-chambers {:name "The Desecrated Chambers"
+                                                   :level 65
+                                                   :waypoint true
+                                                   :notes "Right hand wall-follow until you come to a crossroads with four pillars, then go straight and up."
+                                                   :layouts ["img/layouts/act10/the-desecrated-chambers-01.png"]}
+                         :the-reliquary {:name "The Reliquary"
+                                         :level 67
+                                         :waypoint true
+                                         :notes "The item is always on the edge or a corner, to my experience it’s mostly the right side."}
+                         :the-control-blocks {:name "The Control Blocks"
+                                              :level 66
+                                              :waypoint true
+                                              :notes "Right hand wall-follow all the way to the end. Use movement skills to jump through fences."}
+                         :the-canals {:name "The Canals"
+                                      :level 66
+                                      :notes "Move top left, follow the road, cross bridges when you see them."}
+                         :the-feeding-trough {:name "The Feeding Trough"
+                                              :level 67
+                                              :notes "Move top left, there shouldn’t be any diversions."}})
+
 (def zone-definitions (-> {:act-01 act-01-definitions}
                           (assoc :act-02 act-02-definitions)
                           (assoc :act-03 act-03-definitions)
-                          (assoc :act-04 act-04-definitions)))
+                          (assoc :act-04 act-04-definitions)
+                          (assoc :act-05 act-05-definitions)
+                          (assoc :act-06 act-06-definitions)
+                          (assoc :act-07 act-07-definitions)
+                          (assoc :act-08 act-08-definitions)
+                          (assoc :act-09 act-09-definitions)
+                          (assoc :act-10 act-10-definitions)))
