@@ -156,44 +156,39 @@
                                                 :target "Merveil"}]
                                        [:travel {:method :zone}]]}])
 
-(def act-02-definitions [{:label "Enter The Chamber of Sins"
-                          :zone :the-southern-forest
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Forest Encampment"}]
+(def act-02-definitions [{:zone :the-southern-forest
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-forest-encampment
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-old-fields
+                          :objectives [[:inventory {:action "Place portal next to entrance to The Den on passage through the zone."}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-crossroads
+                          :objectives [[:travel {:method :activate}]
                                        [:travel {:method :zone
-                                                 :location "The Old Fields"}]
-                                       [:travel {:method :zone
-                                                 :location "The Crossroads"
-                                                 :notes "Travel N of the path in The Old Fields and place a portal near the entrance to The Den"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"
-                                                 :notes "Waypoint is located in the center at path intersection then head N"}]
-                                       [:travel {:method :zone
-                                                 :location "The Chamber of Sins Level 1"}]]}
-                         {:label "Enter The Den"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Forest Encampment"}]
-                                       [:travel {:method :portal
-                                                 :location "The Old Fields"}]
-                                       [:travel {:method :zone
-                                                 :location "The Den"}]]}
-                         {:label "Defeat The Great White Beast"
+                                                 :notes "Waypoint is located in the center at path intersection then head N"}]]}
+                         {:zone :the-chamber-of-sins-level-1
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-forest-encampment
+                          :objectives [[:travel {:method :portal}]]}
+                         {:zone :the-old-fields
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-den
                           :objectives [[:quest {:objective :interact
                                                 :target "Einhar"}]
                                        [:quest {:objective :defeat
                                                 :target "The Great White Beast"
-                                                :notes "Head S"}]
+                                                :notes "Head South"}]
                                        [:action {:action "Exit to character selection and re-log"}]]}
-                         {:label "Enter The Chamber of Sins Level 2"
+                         {:zone :the-forest-encampment
                           :objectives [[:reward {:selection "Quicksilver Flask"
                                                  :giver "Yeena"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Chamber of Sins Level 1"}]
-                                       [:travel {:method :zone
-                                                 :location "The Chamber of Sins Level 2"}]]}
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-chamber-of-sins-level-1
+                          :objectives [[:travel {:method :zone}]]}
                          {:label "Defeat Fidelatis"
+                          :zone :the-chamber-of-sins-level-2
                           :objectives [[:quest {:objective :lab
                                                 :target "Trial of Agony"
                                                 :notes "Head S"}]
@@ -201,62 +196,56 @@
                                                 :target "Fidelatis"
                                                 :notes "Head N"}]
                                        [:action {:action "Exit to character selection and re-log"}]]}
-                         {:label "Summon Skitterbots"
-                          :objectives [[:reward {:selection "Blood Rage"
+                         {:zone :the-forest-encampment
+                          :objectives [[:reward {:selection "Arctic Armour"
                                                  :giver "Greust"}]
                                        [:vendor {:action "Purchase Frenzy, 3x Controlled Destruction, and Summon Skitterbots"
                                                  :vendor "Yeena"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-riverways
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-western-forest
+                          :objectives [[:travel {:method :activate}]
                                        [:travel {:method :zone
-                                                 :location "The Riverways"}]]}
-                         {:label "Enter The Weaver's Chambers"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint (The Riverways)"
-                                                 :notes "Head E on path to find waypoint and continue same direction"}]
-                                       [:travel {:method :zone
-                                                 :location "The Western Front"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint (The Western Front)"
-                                                 :notes "Follow path for waypoint then Head S"}]
-                                       [:travel {:method :zone
-                                                 :location "The Weaver's Chambers"}]]}
+                                                 :notes "Located on the opposite side of the road to the checkpoint."}]]}
                          {:label "Defeat The Weaver"
+                          :zone :the-weavers-chambers
                           :objectives [[:quest {:objective :defeat
                                                 :target "The Weaver"
                                                 :notes "Head S"}]
                                        [:action {:action "Exit to character selection and re-log"}]]}
-                         {:label "Enter The Broken Bridge"
+                         {:zone :the-forest-encampment
                           :objectives [[:reward {:selection "Faster Attacks Support"
                                                  :giver "Silk"}]
                                        [:vendor {:action "Check for BBB and BBG wands if haven't already acquired"
                                                  :vendor "Yeena"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Crossroads"
-                                                 :notes "Head N"}]
-                                       [:travel {:method :zone
-                                                 :location "The Broken Bridge"}]]}
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-crossroads
+                          :objectives [[:travel {:method :zone
+                                                 :notes "Head N"}]]}
                          {:label "Defeat Kraityn"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint"
-                                                 :notes "Head N"}]
+                          :zone :the-broken-bridge
+                          :objectives [[:travel {:method :activate}]
                                        [:quest {:objective :defeat
                                                 :target "Kraityn"}]
                                        [:action {:action "Exit to character selection and re-log"}]]}
+                         {:zone :the-forest-encampment
+                          :objectives [[:travel {:method :waypoint}]]}
+                         {:zone :the-riverways
+                          :objectives [[:travel {:method :zone
+                                                 :notes "Head W from the checkpoint"}]]}
                          {:label "Defeat Oak"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Riverways"
-                                                 :notes "Head W from the checkpoint"}]
-                                       [:travel {:method :zone
-                                                 :location "The Wetlands"}]
-                                       [:quest {:objective :defeat
+                          :zone :the-wetlands
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Oak"
                                                 :notes "Head W to find stronghold"}]
                                        [:travel {:method :activate
-                                                 :location "waypoint"
                                                  :notes "Head W from stronghold to find waypoint"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Western Front"}]]}
-                         {:label "Help Alira"
-                          :objectives [[:quest {:objective :interact
+                                       [:travel {:method :waypoint}]]}
+                         {:label "Defeat Alira"
+                          :zone :the-western-forest
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Alira"
                                                 :notes "Located on the same side of the road as the checkpoint, help if racing for +resists"}]
                                        [:quest {:objective :defeat
@@ -266,43 +255,30 @@
                                                 :target "Thaumatic Seal"
                                                 :notes "Use seal to open nearby pathway entrance"}]
                                        [:action {:action "Exit to character selection and re-log"}]]}
-                         {:label "Enter The Vaal Ruins"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "Lioneye's Watch (Act 1)"}]
+                         {:label "Lioneye's rewards"
+                          :zone :the-forest-encampment
+                          :objectives [[:inventory {:action "Waypoint detour to Lioneye's Watch (Act 1)"}]
                                        [:reward {:selection "Skill Point book"
                                                  :giver "Bestel"}]
                                        [:vendor {:action "Check for BBB or BBG wand if need and have currency available"
                                                  :vendor "Nessa"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Forest Encampment (Act 2)"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Wetlands"}]
-                                       [:travel {:method :zone
-                                                 :location "The Vaal Ruins"}]]}
-                         {:label "Enter The Caverns"
+                                       [:inventory {:action "Waypoint return to The Forest Encampent"}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-wetlands
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-vaal-ruins
                           :objectives [[:quest {:objective :activate
                                                 :target "Ruins boulder seal"
                                                 :notes "Head S, then W, then N, then W, then S"}]
-                                       [:travel {:method :zone
-                                                 :location "The Northern Forest"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"
-                                                 :notes "Head W to find the waypoint"}]
-                                       [:travel {:method :zone
-                                                 :location "The Caverns"
-                                                 :notes "Head N"}]]}
-                         {:label "Enter The Pyramid Apex"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint"
-                                                 :notes "Head S, then E, then N"}]
-                                       [:travel {:method :zone
-                                                 :location "The Ancient Pyramid"}]
-                                       [:travel {:method :zone
-                                                 :location "Stair transitions"
-                                                 :notes "Stair exit is always the opposit corner to entrance position"}]
-                                       [:travel {:method :zone
-                                                 :location "Pyramid Apex"}]]}
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-northern-forest
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-caverns
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
                          {:label "Defeat The Vaal Oversoul"
+                          :zone :the-ancient-pyramid
                           :objectives [[:quest {:objective :activate
                                                 :target "The Dark Altar"}]
                                        [:quest {:objective :defeat
