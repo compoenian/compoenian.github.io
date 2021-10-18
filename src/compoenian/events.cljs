@@ -4,6 +4,7 @@
    [compoenian.db :as db]
    [compoenian.data.level :as data.level]
    [compoenian.data.gear :as data.gear]
+   [compoenian.data.zone :as data.zone]
    [day8.re-frame.tracing :refer-macros [fn-traced]]
    [re-frame.core :as rf]))
 
@@ -16,4 +17,4 @@
               (-> db/default-db
                   (assoc :level-data level-data)
                   (assoc :gear-data gear-data)
-                  (assoc :zone-data data.level/zone-data)))))
+                  (assoc :zone-data data.zone/zone-definitions)))))

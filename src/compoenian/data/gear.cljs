@@ -19,12 +19,11 @@
                                        :level 3}
                                       {:label "Post-Brutus"
                                        :skills [{:active :blight
-                                                 :support [:infused-channelling-support
-                                                           :void-manipulation-support]}
-                                                {:active :explosive-trap
-                                                 :support [:arcane-surge-support]}
+                                                 :support [:spell-totem-support
+                                                           :efficacy-support]}
                                                 {:active :contagion
-                                                 :support [:void-manipulation-support]}
+                                                 :support [:arcane-surge-support
+                                                           :void-manipulation-support]}
                                                 {:active :raise-zombie}
                                                 {:active :flame-dash}]
                                        :level 8}
