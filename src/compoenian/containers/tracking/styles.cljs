@@ -266,7 +266,8 @@
    :margin "8px 0 16px"})
 
 (css/defstyles layout-grid-container []
-  {:max-width "400px"})
+  {:max-width "400px"
+   :max-height "220px"})
 
 (css/defstyles layout-image-container []
   {:padding "0 10px"})

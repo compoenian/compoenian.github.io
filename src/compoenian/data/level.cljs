@@ -445,7 +445,7 @@
                          {:zone :highgate
                           :objectives [[:quest {:objective :interact
                                                 :target "Tasuni"}]
-                                       [:travel {:method {:waypoint}}]]}
+                                       [:travel {:method :waypoint}]]}
                          {:zone :the-crystal-veins
                           :objectives [[:travel {:method :zone}]]}
                          {:zone :daressos-dream
@@ -518,673 +518,548 @@
 (def act-05-definitions [{:zone :the-slave-pens
                           :objectives [[:travel {:method :zone}]]}
                          {:zone :overseers-tower
-                          :objectives [[]]}
-                         {:label "Defeat Justicar Casticus"
                           :objectives [[:quest {:objective :interact
                                                 :target "Lani"}]
-                                       [:travel {:method :zone
-                                                 :location "The Control Blocks"}]
-                                       [:quest {:objective :collect
+                                       [:travel {:method :zone}]]}
+                         {:label "Defeat Justicar Casticus"
+                          :zone :the-control-blocks
+                          :objectives [[:quest {:objective :collect
                                                 :target "The Miasmeter"}]
                                        [:quest {:objective :defeat
                                                 :target "Justicar Casticus"
-                                                :notes "Loot the Eyes of Zeal"}]]}
-                         {:label "Enter The Chamber of Innocence"
-                          :objectives [[:travel {:method :zone
-                                                 :location "Oriath Square"}]
-                                       [:travel {:method :zone
-                                                 :location "The Templar Courts"}]
-                                       [:travel {:method :zone
-                                                 :location "The Chamber of Innocence"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Overseer's Tower"}]]}
-                         {:label "Defeat Innocence"
+                                                :notes "Loot the Eyes of Zeal"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :oriath-square
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-templar-courts
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-chamber-of-innocence
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :overseers-tower
                           :objectives [[:quest {:objective :interact
                                                 :target "Lani and Vilenta"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Chamber of Innocence"}]
-                                       [:quest {:objective :defeat
-                                                :target "Innocence"}]]}
-                         {:label "Sign of Purity"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Torched Courts"}]
-                                       [:travel {:method :zone
-                                                 :location "The Ruined Square"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :zone
-                                                 :location "The Ossuary"}]
-                                       [:quest {:objective :collect
+                                       [:travel {:method :waypoint}]]}
+                         {:label "Defeat Innocence"
+                          :zone :the-chamber-of-innocence
+                          :objectives [[:quest {:objective :defeat
+                                                :target "Innocence"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-torched-courts
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-ruined-square
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-ossuary
+                          :objectives [[:quest {:objective :collect
                                                 :target "Sign of Purity"}]
-                                       [:travel {:method :town-portal
-                                                 :location "The Overseer's Tower"}]]}
-                         {:label "Kitava's Torments"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Ruined Square"
-                                                 :notes "Place portal near The Cathedral Rooftop to the W of the zone"}]
-                                       [:travel {:method :zone
-                                                 :location "The Reliquary"}]
-                                       [:quest {:objective :collect
+                                       [:travel {:method :portal}]]}
+                         {:zone :overseers-tower
+                          :objectives [[:travel {:method :waypoint}]]}
+                         {:zone :the-ruined-square
+                          :objectives [[:inventory {:action "Place portal near The Cathedral Rooftop to the W of the zone"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-reliquary
+                          :objectives [[:quest {:objective :collect
                                                 :target "3x Kitava's Torments"}]
-                                       [:travel {:method :town-portal
-                                                 :location "The Overseer's Tower"}]]}
-                         {:label "Defeat Kitava"
+                                       [:travel {:method :portal}]]}
+                         {:zone :overseers-tower
                           :objectives [[:quest {:objective :interact
                                                 :target "Lani"}]
-                                       [:travel {:method :portal
-                                                 :location "The Ruined Square"}]
-                                       [:travel {:method :zone
-                                                 :location "The Cathedral Rooftop"}]
-                                       [:travel {:method :zone
-                                                 :location "The Cathedral Apex"}]
-                                       [:quest {:objective :defeat
+                                       [:travel {:method :portal}]]}
+                         {:zone :the-ruined-square
+                          :objectives [[:travel {:method :zone}]]}
+                         {:label "Defeat Kitava"
+                          :zone :the-cathedral-rooftop
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Kitava"}]
-                                       [:travel {:method :zone
-                                                 :location "The Cathedral Rooftop (act end)"}]
                                        [:quest {:objective :interact
                                                 :target "Lilly"
                                                 :notes "End of Act 5, sail to Wraeclast"}]]}])
 
-(def act-06-definitions [
-                         {:label "Enter The Karui Fortress"
+(def act-06-definitions [{:zone :lioneyes-watch
                           :objectives [[:inventory {:action "Check resistances, and particularly try to cap fire res"}]
-                                       [:travel {:method :zone
-                                                 :location "The Coast"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :zone
-                                                 :location "The Mud Flats"}]
-                                       [:quest {:objective :defeat
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-coast
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-mud-flats
+                          :objectives [[:quest {:objective :defeat
                                                 :target "The Dishonoured Queen"
                                                 :notes "Loot The Eye of Conquest"}]
-                                       [:travel {:method :zone
-                                                 :location "The Karui Fortress"}]]}
-                         {:label "Enter The Ridge"
-                          :objectives [[:travel {:method :zone
-                                                 :location "Tukohama's Keep"}]
-                                       [:quest {:objective :defeat
-                                                :target "Tukohama"}]
-                                       [:travel {:method :zone
-                                                 :location "The Karui Fortress"}]
-                                       [:travel {:method :zone
-                                                 :location "The Ridge"}]]}
-                         {:label "Bestel's Manuscript"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Coast"}]
-                                       [:travel {:method :zone
-                                                 :location "The Tidal Island"}]
-                                       [:quest {:objective :activate
+                                       [:travel {:method :zone}]]}
+                         {:label "Defeat Tukohama"
+                          :zone :the-karui-fortress
+                          :objectives [[:quest {:objective :defeat
+                                                :target "Tukohama"
+                                                :notes "Enter Tukohama's Keep in the middle of the zone"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-ridge
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-coast
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-tidal-island
+                          :objectives [[:quest {:objective :activate
                                                 :target "Storage Chest"
                                                 :notes "Loot Bestel's Manuscript"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Lioneye's Watch"}]]}
-                         {:label "Clear The Twilight Strand"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Twilight Strand"}]
-                                       [:quest {:objective :interact
-                                                :target "Einhar"
+                                       [:travel {:method :portal}]]}
+                         {:zone :lioneyes-watch
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-twilight-strand
+                          :objectives [[:quest {:objective :defeat
+                                                :target "Zone"
                                                 :notes "Clear the zone (confirmed by on-screen countdown)"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Lioneye's Watch"}]
-                                       [:quest {:objective :interact
+                                       [:travel {:method :portal}]]}
+                         {:zone :lioneyes-watch
+                          :objectives [[:quest {:objective :interact
                                                 :target "Lilly, Bestel, and Tarkleigh"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Ridge"}]]}
-                         {:label "Enter Shavronne's Tower"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Lower Prison"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-ridge
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-lower-prison
+                          :objectives [[:travel {:method :activate}]
                                        [:quest {:objective :lab
                                                 :target "Trial of Ascendancy"
                                                 :notes "Drop portal near exit of the zone if you don't discover it before then"}]
-                                       [:travel {:method :zone
-                                                 :location "Shavronne's Tower"}]]}
+                                       [:travel {:method :zone}]]}
                          {:label "Defeat Brutus and Shavronne"
-                          :objectives [[:travel {:method :zone
-                                                 :location "Prison Rooftop"}]
-                                       [:quest {:objective :defeat
+                          :zone :shavronnes-tower
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Brutus and Shavronne"}]
                                        [:travel {:method :zone
-                                                 :location "The Warden's Chambers"
-                                                 :notes "Pickup the crafting recipe here"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :waypoint
-                                                 :location "Lioneye's Watch"}]]}
-                         {:label "Enter Prisoner's Gate"
+                                                 :notes "Pickup the crafting recipe after leaving the boss area."}]]}
+                         {:zone :prisoners-gate
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :lioneyes-watch
                           :objectives [[:quest {:objective :lab
                                                 :target "Trial of Ascendancy"
-                                                :notes "If didn't complete earlier then take portal back to Prison and complete"}]
+                                                :notes "If didn't complete earlier then take portal back to The Lower Prison, complete and portal back"}]
                                        [:quest {:objective :interact
                                                 :target "Tarkleigh"}]
-                                       [:travel {:method :waypoint
-                                                 :location "Prisoner's Gate"}]]}
-                         {:label "Enter The Cavern of Anger"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Western Front"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint (The Western Front)"}]
-                                       [:travel {:method :zone
-                                                 :location "The Riverways"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint (The Riverways)"}]
-                                       [:travel {:method :zone
-                                                 :location "The Southern Forest"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint (The Southern Forest)"}]
-                                       [:travel {:method :zone
-                                                 :location "The Cavern of Anger"}]]}
-                         {:label "Activate The Beacon"
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :prisoners-gate
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-western-forest
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-riverways
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-southern-forest
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-cavern-of-anger
                           :objectives [[:quest {:objective :activate
                                                 :target "Flag Chest"
                                                 :notes "Loot The Black Flag"}]
-                                       [:travel {:method :zone
-                                                 :location "The Beacon"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
+                                       [:travel {:method :zone}]]}
+                         {:label "Activate The Beacon"
+                          :zone :the-beacon
+                          :objectives [[:travel {:method :activate}]
                                        [:quest {:objective :activate
                                                 :target "The Beacon with The Black Flag"}]
                                        [:quest {:objective :interact
                                                 :target "Weylam"}]]}
                          {:label "Defeat The Brine King"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint (The Brine King's Reef)"}]
+                          :objectives [[:travel {:method :activate}]
                                        [:quest {:objective :defeat
                                                 :target "The Brine King"}]
                                        [:inventory {:action "Select Pantheons if haven't already done so"}]
                                        [:quest {:objective :interact
                                                 :target "Weylam"}]]}])
 
-(def act-07-definitions [
-                         {:label "Enter The Fellshrine Ruins"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Broken Bridge"}]
-                                       [:quest {:objective :collect
+(def act-07-definitions [{:zone :the-bridge-encampment
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-broken-bridge
+                          :objectives [[:quest {:objective :collect
                                                 :target "Silver Locket"}]
-                                       [:travel {:method :zone
-                                                 :location "The Crossroads"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-crossroads
+                          :objectives [[:travel {:method :activate
                                                  :notes "Head S"}]
-                                       [:travel {:method :zone
-                                                 :location "The Fellshrine Ruins"}]]}
-                         {:label "Maligaro's Map"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Crypt"}]
-                                       [:quest {:objective :lab
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-fellshrine-ruins
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-crypt
+                          :objectives [[:quest {:objective :lab
                                                 :target "Trial of Ascendancy"}]
-                                       [:travel {:method :zone
-                                                 :location "The Crypt Level 2"}]
                                        [:quest {:objective :collect
-                                                :target "Maligaro's Map"}]
-                                       [:travel {:method :town-portal
-                                                 :location "The Broken Bridge"}]]}
-                         {:label "Enter Maligaro's Sanctum"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Crossroads"}]
-                                       [:travel {:method :zone
-                                                 :location "The Chamber of Sins Level 1"
-                                                 :notes "Head N"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
+                                                :target "Maligaro's Map"
+                                                :notes "Travel to second zone of The Crypt to find the map."}]
+                                       [:travel {:method :portal}]]}
+                         {:zone :the-bridge-encampment
+                          :objectives [[:travel {:method :waypoint}]]}
+                         {:zone :the-crossroads
+                          :objectives [[:travel {:method :zone
+                                                 :notes "Head N"}]]}
+                         {:zone :the-crossroads
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-chamber-of-sins-level-1
+                          :objectives [[:travel {:method :activate}]
                                        [:quest {:objective :interact
                                                 :target "Silk"}]
                                        [:quest {:objective :activate
                                                 :target "Maligaro's Map Device"}]
-                                       [:travel {:method :zone
-                                                 :location "Maligaro's Sanctum"}]]}
+                                       [:travel {:method :zone}]]}
                          {:label "Defeat Maligaro"
-                          :objectives [[:travel {:method :zone
-                                                 :location "Maligaro's Workshop"}]
-                                       [:quest {:objective :defeat
+                          :zone :maligaros-sanctum
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Maligaro"
                                                 :notes "Loot the Black Venom"}]
-                                       [:travel {:method :town-portal
-                                                 :location "The Chamber of Sins Level 1"}]
-                                       [:reward {:selection "Obsidian Key"
+                                       [:travel {:method :portal}]]}
+                         {:zone :the-chamber-of-sins-level-1
+                          :objectives [[:reward {:selection "Obsidian Key"
                                                  :giver "Maligaro"}]
                                        [:travel {:method :zone
-                                                 :location "The Chamber of Sins Level 2"
                                                  :notes "Head the direction of the path directly behind Silk away from the map device"}]]}
-                         {:label "Defeat Gruest"
+                         {:zone :the-chamber-of-sins-level-2
                           :objectives [[:quest {:objective :lab
                                                 :target "Trial of Ascendancy"}]
-                                       [:travel {:method :zone
-                                                 :location "The Den"}]
-                                       [:travel {:method :zone
-                                                 :location "The Ashen Fields"}]
-                                       [:travel {:method :zone
-                                                 :location "The Forest Encampment"
-                                                 :notes "Head W"}]
-                                       [:quest {:objective :defeat
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-den
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-ashen-fields
+                          :objectives [[:travel {:method :zone}]]}
+                         {:label "Defeat Gruest"
+                          :zone :the-forest-encampment
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Gruest"}]
-                                       [:travel {:method :zone
-                                                 :location "The Northern Forest"}]]}
-                         {:label "Enter The Vaal City"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Causeway"
-                                                 :notes "Drop a portal near The Dread Thicket to the W of the zone if you find it"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-northern-forest
+                          :objectives [[:travel {:method :activate}]
+                                       [:inventory {:action "Drop a portal near The Dread Thicket to the W of the zone if you find it"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-causeway
+                          :objectives [[:travel {:method :activate}]
                                        [:quest {:objective :interact
                                                 :target "Alva"
                                                 :notes "Talk to Alva to make her available in your hideout"}]
-                                       [:travel {:method :zone
-                                                 :location "The Vaal City"}]]}
-                         {:label "Enter The Dread Thicket"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint"}]
+                                       [:quest {:objective :loot
+                                                :target "Kishara's Star near the exit of the zone"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-vaal-city
+                          :objectives [[:travel {:method :activate}]
                                        [:quest {:objective :interact
                                                 :target "Yeena"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Broken Bridge"}]
-                                       [:quest {:objective :interact
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-bridge-encampment
+                          :objectives [[:quest {:objective :interact
                                                 :target "Helena, and Yeena"}]
-                                       [:travel {:method :portal
-                                                 :location "The Northern Forest"}]
-                                       [:travel {:method :zone
-                                                 :location "The Dread Thicket"}]]}
+                                       [:travel {:method :portal}]]}
+                         {:zone :the-northern-forest
+                          :objectives [[:travel {:method :zone}]]}
                          {:label "Defeat Gruthkul"
+                          :zone :the-dread-thicket
                           :objectives [[:quest {:objective :collect
                                                 :target "Fireflies"}]
-                                       [:travel {:method :zone
-                                                 :location "The Den of Despair"}]
                                        [:quest {:objective :defeat
                                                 :target "Gruthkul"
-                                                :notes "Return to The Dread Thicket after if still more fireflies to collect"}]
-                                       [:travel {:method :town-portal
-                                                 :location "The Broken Bridge"}]]}
-                         {:label "Return to The Riverways"
+                                                :notes "Enter The Den of Despair. Return to The Dread Thicket after if still more fireflies to collect"}]
+                                       [:travel {:method :portal}]]}
+                         {:zone :the-bridge-encampment
                           :objectives [[:quest {:objective :interact
                                                 :target "Eramir, and Weylam"}]
                                        [:reward {:selection "Granite Flask"
                                                  :giver "Eramir"}]
                                        [:travel {:method :waypoint
-                                                 :location "The Riverways (Act 6)"}]]}
-                         {:label "Defeat Ryslatha"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Wetlands"
-                                                 :notes "Head N"}]
-                                       [:travel {:method :zone
-                                                 :location "The Spawning Ground"}]
+                                                 :notes "Travel to Act 6 The Riverways for pantheon bosses."}]
                                        [:quest {:objective :defeat
-                                                :target "Ryslatha, the Puppet Mistress"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Lioneye's Watch"}]]}
-                         {:label "Defeat Abberath"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "Prisoner's Gate (Act 6)"}]
-                                       [:travel {:method :zone
-                                                 :location "Valley of the Firedrinker"}]
+                                                :target "Ryslatha"
+                                                :notes "Follow the path up to The Wetlands. Follow LHS to Spawning Ground. Then portal."}]
                                        [:quest {:objective :defeat
-                                                :target "Abberath"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Lioneye's Watch"}]
+                                                :target "Abberath"
+                                                :notes "Waypoint to Act 6 Prisoner's Gate, enter Valley of the Firedrinker. Then portal and waypoint back to The Bridge Encampment."}]
                                        [:quest {:objective :interact
-                                                :target "Bestel, and Tarkleigh"}]]}
-                         {:label "Complete Cruel Labyrinth"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "Aspirant's Path"}]
+                                                :target "Bestel, and Tarkleigh"}]
                                        [:quest {:objective :ascend
-                                                :target "Cruel Labyrinth"
-                                                :notes "Take Ghost Dance for the increased movement speed"}]]}
-                         {:label "Complete Act 7"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Vaal City"}]
-                                       [:quest {:objective :interact
+                                                :target "Cruel Labyrinth"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-vaal-city
+                          :objectives [[:quest {:objective :interact
                                                 :target "Yeena"}]
-                                       [:travel {:method :zone
-                                                 :location "The Temple of Decay Level 1"}]
-                                       [:travel {:method :zone
-                                                 :location "The Temple of Decay Level 2"}]
-                                       [:travel {:method :zone
-                                                 :location "Arakaali's Web"}]
-                                       [:quest {:objective :defeat
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-temple-of-decay-level-1
+                          :objectives [[:travel {:method :zone}]]}
+                         {:label "Defeat Arakaali"
+                          :zone :the-temple-of-decay-level-2
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Arakaali"}]
-                                       [:travel {:method :zone
-                                                 :location "The Sarn Ramparts"}]
-                                       [:travel {:method :zone
-                                                 :location "The Sarn Encampment"}]]}])
+                                       [:travel {:method :zone}]]}])
 
-(def act-08-definitions [{:label "Defeat Doedre"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Toxic Conduits"}]
-                                       [:travel {:method :zone
-                                                 :location "Doedre's Cesspool"}]
-                                       [:travel {:method :zone
-                                                 :location "The Cauldron"}]
-                                       [:quest {:objective :defeat
+(def act-08-definitions [{:zone :the-sarn-ramparts
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-sarn-encampment
+                          :objectives [[:travel {:method :zone}]]}
+                         {:label "Defeat Doedre"
+                          :zone :the-toxic-conduits
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Doedre"}]
                                        [:travel {:method :zone
-                                                 :location "The Sewer Outlet"}]]}
-                         {:label "Enter The Grain Gate"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Quay"
-                                                 :notes "Head E"}]
-                                       [:quest {:objective :activate
+                                                 :notes "Head E"}]]}
+                         {:zone :the-quay
+                          :objectives [[:quest {:objective :activate
                                                 :target "The Sealed Casket"
                                                 :notes "Follow the SW wall to find the bridged island containing the casket and loot the Ankh of Eternity"}]
-                                       [:travel {:method :zone
-                                                 :location "The Grain Gate"
-                                                 :notes "Drop a portal at the start of the path to the Resurrection Site"}]]}
-                         {:label "Enter The Solaris Temple"
+                                       [:inventory {:action "Drop a portal at the start of the path to the Resurrection Site"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-grain-gate
                           :objectives [[:travel {:method :activate
-                                                 :location "waypoint"
                                                  :notes "Follow entrances with corpses outside of them"}]
                                        [:quest {:objective :defeat
                                                 :target "The Gemling Legionnaires"}]
-                                       [:travel {:method :zone
-                                                 :location "The Imperial Fields"}]
-                                       [:travel {:method :zone
-                                                 :location "The Solaris Temple Level 1"}]]}
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-imperial-fields
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-solaris-temple-level-1
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-sarn-encampment
+                          :objectives [[:travel {:method :portal}]]}
                          {:label "Defeat Holman"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Sarn Encampment (waypoint)"}]
-                                       [:travel {:method :portal
-                                                 :location "The Quay"}]
-                                       [:travel {:method :zone
-                                                 :location "The Ressurection Site"}]
-                                       [:quest {:objective :defeat
+                          :zone :the-quay
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Holman"
-                                                :notes "Loot the amulet"}]
-                                       [:travel {:method :town-portal
-                                                 :location "The Sarn Encampment (portal)"}]]}
-                         {:label "Defeat Dawn"
+                                                :notes "Complete the ritual at The Resurrection Site and loot the amulet"}]
+                                       [:travel {:method :portal}]]}
+                         {:zone :the-sarn-encampment
                           :objectives [[:quest {:objective :interact
                                                 :target "Clarissa, Hargan, and Maramoa"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Solaris Temple Level 1"}]
-                                       [:travel {:method :zone
-                                                 :location "The Solaris Temple Level 2"}]
-                                       [:quest {:objective :defeat
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-solaris-temple-level-1
+                          :objectives [[:travel {:method :zone}]]}
+                         {:label "Defeat Dawn"
+                          :zone :the-solaris-temple-level-2
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Dawn"
                                                 :notes "Loot the Sun Orb"}]
-                                       [:travel {:method :town-portal
-                                                 :location "The Sarn Encampment"}]]}
-                         {:label "Enter The Lunaris Temple"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Solaris Temple Level 1"}]
-                                       [:travel {:method :zone
-                                                 :location "The Solaris Concourse"}]
-                                       [:travel {:method :zone
-                                                 :location "The Harbour Bridge"}]
-                                       [:travel {:method :zone
-                                                 :location "The Lunaris Concourse"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :zone
-                                                 :location "The Lunaris Temple Level 1"}]]}
-                         {:label "Defeat Dusk"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :zone
-                                                 :location "The Lunaris Temple Level 2"}]
-                                       [:quest {:objective :defeat
+                                       [:travel {:method :portal}]]}
+                         {:zone :the-sarn-encampment
+                          :objectives [[:travel {:method :waypoint}]]}
+                         {:zone :the-solaris-temple-level-1
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-solaris-concourse
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-harbour-bridge
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-lunaris-concourse
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-lunaris-temple-level-1
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-lunaris-temple-level-2
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Dusk"
                                                 :notes "Loot the Moon Orb"}]
-                                       [:travel {:method :town-portal
-                                                 :location "The Sarn Encampment"}]]}
-                         {:label "Complete Act 8"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Lunaris Concourse"}]
-                                       [:travel {:method :zone
-                                                 :location "The Harbour Bridge"
-                                                 :notes "Head S"}]
-                                       [:travel {:method :zone
-                                                 :location "The Sky Shrine"}]
-                                       [:quest {:objective :activate
-                                                :target "Statue of the Sisters"}]
-                                       [:quest {:objective :defeat
+                                       [:travel {:method :portal}]]}
+                         {:zone :the-sarn-encampment
+                          :objectives [[:travel {:method :waypoint}]]}
+                         {:zone :the-lunaris-concourse
+                          :objectives [[:travel {:method :zone}]]}
+                         {:label "Defeat Solaris and Lunaris"
+                          :zone :the-harbour-bridge
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Solaris and Lunaris"}]
                                        [:travel {:method :zone
-                                                 :location "The Blood Aqueduct"
-                                                 :notes "Farm here for levels and gear, at least 62 and work on resistances"}]
-                                       [:travel {:method :zone
-                                                 :location "Highgate"}]]}])
-
-
-(def act-09-definitions [{:label "Defeat Hector Titucius"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Lunaris Concourse (Act 8)"}]
-                                       [:travel {:method :zone
-                                                 :location "The Bath House"
-                                                 :notes "Head W"}]
-                                       [:quest {:objective :defeat
+                                                 :notes "Activate the waypoint in The Blood Aqueducts and return to The Lunaris Concourse"}]]}
+                         {:zone :the-lunaris-concourse
+                          :objectives [[:travel {:method :zone
+                                                 :notes "Head W"}]]}
+                         {:label "Defeat Hector Titucius"
+                          :zone :the-bath-house
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Hector Titucius"
                                                 :notes "Loot The Wings of Vastiri"}]
                                        [:quest {:objective :lab
                                                 :target "Trial of Ascendancy"}]
-                                       [:travel {:method :zone
-                                                 :location "The High Gardens"}]]}
+                                       [:travel {:method :zone}]]}
                          {:label "Defeat Yugul"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Pools of Terror"}]
-                                       [:quest {:objective :defeat
-                                                :target "Yugul"}]
-                                       [:travel {:method :town-portal
-                                                 :location "The Sarn Encampment"}]
-                                       [:quest {:objective :interact
+                          :zone :the-high-gardens
+                          :objectives [[:quest {:objective :defeat
+                                                :target "Yugul"
+                                                :notes "Enter The Pools of Terror for boss arena"}]
+                                       [:travel {:method :portal}]]}
+                         {:zone :the-sarn-encampment
+                          :objectives [[:quest {:objective :interact
                                                 :target "Hargan"}]
-                                       [:travel {:method :waypoint
-                                                 :location "Highgate"}]]
-                          :current-gear :trickster-slinger}
-                         {:label "Collect The Storm Blade"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Descent"}]
-                                       [:travel {:method :zone
-                                                 :location "The Vastiri Desert"}]
-                                       [:quest {:objective :defeat
+                                       [:travel {:method :waypoint}]]}])
+
+(def act-09-definitions [{:zone :the-blood-aqueducts
+                          :objectives [[:inventory {:action "Farm zone til min 62 and bumping resistances."}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :highgate
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-descent
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-vastiri-desert
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Betrayal mission"
                                                 :notes "Complete the mission here to unlock Jun in your hideout"}]
                                        [:quest {:objective :collect
                                                 :target "The Storm Blade"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :waypoint
-                                                 :location "Highgate"}]]}
-                         {:label "Defeat Shakari"
+                                       [:travel {:method :activate}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :highgate
                           :objectives [[:quest {:objective :interact
                                                 :target "Petarus and Vanja, Jun, Sin, and Petarus and Vanja again"
                                                 :notes "Collect the Bottled Storm"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Vastiri Desert"}]
-                                       [:travel {:method :zone
-                                                 :location "The Oasis"
-                                                 :notes "Head E"}]
-                                       [:travel {:method :zone
-                                                 :location "The Sand Pit"}]
-                                       [:quest {:objective :defeat
-                                                :target "Shakari"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Highgate"}]]}
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-vastiri-desert
+                          :objectives [[:travel {:method :zone
+                                                 :notes "Head E"}]]}
+                         {:label "Defeat Shakari"
+                          :zone :the-oasis
+                          :objectives [[:quest {:objective :defeat
+                                                :target "Shakari"
+                                                :notes "Enter The Sand Pit to activate the boss arena."}]
+                                       [:travel {:method :portal}]]}
+                         {:zone :highgate
+                          :objectives [[:travel {:method :waypoint}]]}
+                         {:zone :the-vastiri-desert
+                          :objectives [[:travel {:method :zone
+                                                 :notes "Head N"}]]}
+                         {:zone :the-foothills
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
                          {:label "Defeat The Basilisk"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Vastiri Desert"}]
-                                       [:travel {:method :zone
-                                                 :location "The Foothills"
-                                                 :notes "Head N"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :zone
-                                                 :location "The Boiling Lake"}]
-                                       [:quest {:objective :defeat
+                          :zone :the-boiling-lake
+                          :objectives [[:quest {:objective :defeat
                                                 :target "The Basilisk"
                                                 :notes "Loot the Basilisk Acid"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Highgate"}]]}
-                         {:label "Enter The Quarry"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Foothills"}]
-                                       [:travel {:method :zone
-                                                 :location "The Tunnel"
-                                                 :notes "Head N"}]
-                                       [:quest {:objective :lab
+                                       [:travel {:method :portal}]]}
+                         {:zone :highgate
+                          :objectives [[:travel {:method :waypoint}]]}
+                         {:zone :the-foothills
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-tunnel
+                          :objectives [[:quest {:objective :lab
                                                 :target "Trial of Ascendancy"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :zone
-                                                 :location "The Quarry"}]]}
-                         {:label "Defeat General Adus"
-                          :objectives [[:travel {:method :activate
-                                                 :location "waypoint"}]
+                                       [:travel {:method :activate}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-quarry
+                          :objectives [[:travel {:method :activate}]
                                        [:quest {:objective :interact
                                                 :target "Sin"}]
                                        [:travel {:method :zone
-                                                 :location "The Refinery"
-                                                 :notes "Head E usually, sometimes N"}]
-                                       [:quest {:objective :defeat
+                                                 :notes "Head E usually, sometimes N"}]]}
+                         {:label "Defeat General Adus"
+                          :zone :the-refinery
+                          :objectives [[:quest {:objective :defeat
                                                 :target "General Adus"
                                                 :notes "Loot Trarthan Powder"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Highgate"}]]}
+                                       [:travel {:method :portal}]]}
+                         {:zone :highgate
+                          :objectives [[:travel {:method :waypoint}]]}
                          {:label "Defeat Garukhan"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Quarry"}]
-                                       [:travel {:method :zone
-                                                 :location "Shrine of Winds"
-                                                 :notes "Head W usually, sometimes E"}]
-                                       [:quest {:objective :defeat
+                          :zone :the-quarry
+                          :objectives [[:quest {:objective :defeat
                                                 :target "Garukhan"
                                                 :notes "Loot Sekhema Feather"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Highgate"}]
-                                       [:quest {:objective :interact
-                                                :target "Irasha"}]]}
-                         {:label "Enter The Black Core"
-                          :objectives [[:travel {:method :waypoint
-                                                 :location "The Quarry"}]
-                                       [:quest {:objective :interact
+                                       [:travel {:method :portal}]]}
+                         {:zone :highgate
+                          :objectives [[:quest {:objective :interact
+                                                :target "Irasha"}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-quarry
+                          :objectives [[:quest {:objective :interact
                                                 :target "Sin"}]
-                                       [:travel {:method :zone
-                                                 :location "The Belly of the Beast"}]
-                                       [:travel {:method :zone
-                                                 :location "The Rotting Core"}]
-                                       [:travel {:method :zone
-                                                 :location "The Black Core"}]]}
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-belly-of-the-beast
+                          :objectives [[:travel {:method :zone}]]}
                          {:label "Defeat The Depraved Trinity"
+                          :zone :the-rotting-core
                           :objectives [[:quest {:objective :interact
                                                 :target "Sin (1st)"}]
                                        [:quest {:objective :defeat
                                                 :target "Shavronne/Maligaro/Doedre"}]
                                        [:quest {:objective :interact
                                                 :target "Sin (2nd)"}]
-                                       [:travel {:method :zone
-                                                 :location "The Black Heart"}]
                                        [:quest {:objective :defeat
                                                 :target "The Depraved Trinity"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Highgate"}]
-                                       [:travel {:method :waypoint
-                                                 :location "Oriath Docks"}]]}])
+                                       [:travel {:method :portal}]]}
+                         {:zone :highgate
+                          :objectives [[:travel {:method :waypoint}]]}])
 
-(def act-10-definitions [
-                         {:label "Enter The Ravaged Square"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Cathedral Rooftop (1st)"}]
-                                       [:travel {:method :zone
-                                                 :location "Cathedral Apex"}]
-                                       [:quest {:objective :interact
+(def act-10-definitions [{:zone :oriath-docks
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-cathedral-rooftop
+                          :objectives [[:quest {:objective :interact
+                                                :target "Bannon"
+                                                :notes "Head left and save Bannon in the Cathedral Apex."}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-ravaged-square
+                          :objectives [[:inventory {:action "Drop a portal in the open area near to zone entrance, Head E"}]
+                                       [:travel {:method :activate}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :oriath-docks
+                          :objectives [[:quest {:objective :interact
                                                 :target "Bannon"}]
-                                       [:travel {:method :zone
-                                                 :location "The Cathedral Rooftop (2nd)"}]
-                                       [:travel {:method :zone
-                                                 :location "The Ravaged Square"
-                                                 :notes "Head S"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"
-                                                 :notes "Drop a portal in the open area near to zone entrance, Head E"}]
-                                       [:travel {:method :waypoint
-                                                 :location "Oriath Docks"}]]}
-                         {:label "Enter The Control Blocks"
-                          :objectives [[:travel {:method :portal
-                                                 :location "The Ravaged Square (1st)"}]
-                                       [:travel {:method :zone
-                                                 :location "The Control Blocks"
-                                                 :notes "Head W"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Ravaged Square (2nd)"}]]}
-                         {:label "Collect The Elixir of Allure"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Ossuary"}]
-                                       [:quest {:objective :lab
+                                       [:travel {:method :portal}]]}
+                         {:zone :the-ravaged-square
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-control-blocks
+                          :objectives [[:travel {:method :activate}]
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-ravaged-square
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-ossuary
+                          :objectives [[:quest {:objective :lab
                                                 :target "Trial of Ascendancy"}]
                                        [:quest {:objective :collect
                                                 :target "The Elixir of Allure"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Oriath Docks"}]]}
-                         {:label "Complete Merciless Lab"
+                                       [:travel {:method :portal}]]}
+                         {:zone :oriath-docks
                           :objectives [[:quest {:objective :interact
                                                 :target "Weylam, Bannon, and Lani"}]
-                                       [:travel {:method :waypoint
-                                                 :location "Aspirant's Path"}]
                                        [:quest {:objective :ascend
                                                 :target "Merciless Labyrinth"
                                                 :notes "Prolonged Pain/Escape Artist"}]
-                                       [:travel {:method :waypoint
-                                                 :location "Oriath Docks"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Control Blocks"}]]}
+                                       [:travel {:method :waypoint}]]}
                          {:label "Defeat Vilenta"
+                          :zone :the-control-blocks
                           :objectives [[:quest {:objective :defeat
                                                 :target "Vilenta"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Oriath Docks"}]
-                                       [:quest {:objective :interact
+                                       [:travel {:method :portal}]]}
+                         {:zone :oriath-docks
+                          :objectives [[:quest {:objective :interact
                                                 :target "Lani"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Ravaged Square"}]]}
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-ravaged-square
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-torched-courts
+                          :objectives [[:travel {:method :zone}]]}
                          {:label "Defeat Avarius"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Torched Courts"
-                                                 :notes "Head E"}]
-                                       [:travel {:method :zone
-                                                 :location "The Desecrated Chambers"}]
-                                       [:travel {:method :activate
-                                                 :location "waypoint"}]
-                                       [:travel {:method :zone
-                                                 :location "Sanctum of Innocence"}]
+                          :zone :the-desecrated-chambers
+                          :objectives [[:travel {:method :activate}]
                                        [:quest {:objective :defeat
                                                 :target "Avarius"
                                                 :notes "Loot The Staff of Purity"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Oriath Docks"}]]}
-                         {:label "Enter The Canals"
+                                       [:travel {:method :portal}]]}
+                         {:zone :oriath-docks
                           :objectives [[:quest {:objective :interact
                                                 :target "Bannon, Lani, and Lilly"}]
-                                       [:travel {:method :waypoint
-                                                 :location "The Ravaged Square"}]
-                                       [:quest {:objective :interact
+                                       [:travel {:method :waypoint}]]}
+                         {:zone :the-ravaged-square
+                          :objectives [[:quest {:objective :interact
                                                 :target "Innocence"}]
-                                       [:travel {:method :zone
-                                                 :location "The Canals"}]]}
-                         {:label "Defeat Kitava"
-                          :objectives [[:travel {:method :zone
-                                                 :location "The Feeding Trough"}]
-                                       [:quest {:objective :interact
-                                                :target "Sin (1st)"}]
-                                       [:travel {:method :zone
-                                                 :location "Altar of Hunger"}]
+                                       [:travel {:method :zone}]]}
+                         {:zone :the-canals
+                          :objectives [[:travel {:method :zone}]]}
+                         {:zone :the-feeding-trough
+                          :objectives [[:quest {:objective :interact
+                                                :target "Sin"}]
                                        [:quest {:objective :defeat
                                                 :target "Kitava"}]
-                                       [:quest {:objective :interact
-                                                :target "Sin (2nd)"}]
-                                       [:travel {:method :town-portal
-                                                 :location "Oriath"}]
-                                       [:reward {:selection "Skill Point book"
-                                                 :giver "Lani"}]]}])
+                                       [:travel {:method :portal}]]}])
 
-(def end-campaign-definitions [{:name "Still sane exile?"
-                                :objectives [[:reward {:selection "Skill Point book"
-                                                       :giver "Lani"}]]}])
+(def act-x-definitions [{:label "Still sane exile?"
+                         :zone :oriath
+                         :objectives [[:reward {:selection "Skill Point book"
+                                                :giver "Lani"}]]}])
 
 (def act-definitions [{:act-id :act-01
                        :data act-01-definitions}
@@ -1206,8 +1081,8 @@
                        :data act-09-definitions}
                       {:act-id :act-10
                        :data act-10-definitions}
-                      {:act-id :end-campaign
-                       :data end-campaign-definitions}])
+                      {:act-id :act-x
+                       :data act-x-definitions}])
 
 (defn annotate-act-definition [{:keys [act-id data]}]
   (mapv #(assoc % :act-id act-id) data))

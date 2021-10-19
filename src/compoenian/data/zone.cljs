@@ -179,6 +179,7 @@
                                                "img/layouts/act03/the-slums-04.png"]}
                          :the-crematorium {:name "The Crematorium"
                                            :level 25
+                                           :trial true
                                            :waypoint true
                                            :notes "Going left generally has a higher chance of success."
                                            :layouts ["img/layouts/act03/the-crematorium-01.png"
@@ -201,7 +202,8 @@
                                                      "img/layouts/act03/the-marketplace-04.png"
                                                      "img/layouts/act03/the-marketplace-05.png"]}
                          :the-catacombs {:name "The Catacombs"
-                                         :level 27}
+                                         :level 27
+                                         :trial true}
                          :the-battlefront {:name "The Battlefront"
                                            :level 27
                                            :waypoint true
@@ -568,6 +570,9 @@
                                           :notes "The exit is always on the right side."
                                           :layouts ["img/layouts/act08/the-bath-house-01.png"
                                                     "img/layouts/act08/the-bath-house-02.png"]}
+                         :the-solaris-concourse {:name "The Solaris Concourse"
+                                                 :level 58
+                                                 :waypoint true}
                          :the-lunaris-concourse {:name "The Lunaris Concourse"
                                                  :level 58
                                                  :waypoint true
@@ -598,6 +603,8 @@
                                           :notes "This zone has many buildings, only enter and leave buildings through openings that have a guard’s corpse next to it, they lead the way."
                                           :layouts ["img/layouts/act08/the-grain-gate-01.png"
                                                     "img/layouts/act08/the-grain-gate-02.png"]}
+                         :the-high-gardens {:name "The High Gardens"
+                                            :level 58}
                          :the-imperial-fields {:name "The Imperial Fields"
                                                :level 58
                                                :waypoint true
@@ -668,7 +675,9 @@
                                                   :notes "Try to reach the top left part of the zone in The Belly of The Beast, this leads to The Rotting core."
                                                   :layouts ["img/layouts/act09/the-belly-of-the-beast-01.png"
                                                             "img/layouts/act09/the-belly-of-the-beast-02.png"
-                                                            "img/layouts/act09/the-belly-of-the-beast-03.png"]}})
+                                                            "img/layouts/act09/the-belly-of-the-beast-03.png"]}
+                         :the-rotting-core {:name "The Rotting Core"
+                                            :level 64}})
 
 (def act-10-definitions {:the-cathedral-rooftop {:name "The Cathedral Rooftop"
                                                  :level 64
@@ -708,6 +717,10 @@
                                               :level 67
                                               :notes "Move top left, there shouldn’t be any diversions."}})
 
+(def act-x-definitions {:oriath {:name "Oriath"
+                                 :level nil
+                                 :waypoint true}})
+
 (def zone-definitions (-> {:act-01 act-01-definitions}
                           (assoc :act-02 act-02-definitions)
                           (assoc :act-03 act-03-definitions)
@@ -717,4 +730,5 @@
                           (assoc :act-07 act-07-definitions)
                           (assoc :act-08 act-08-definitions)
                           (assoc :act-09 act-09-definitions)
-                          (assoc :act-10 act-10-definitions)))
+                          (assoc :act-10 act-10-definitions)
+                          (assoc :act-x act-x-definitions)))
